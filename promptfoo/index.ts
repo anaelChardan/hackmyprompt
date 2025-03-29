@@ -1,3 +1,5 @@
+import { testPrompt } from "./promptfoo-api";
+
 const port = 3555;
 
 Bun.serve({
@@ -8,8 +10,9 @@ Bun.serve({
     "/test-prompt": {
       POST: async (req) => {
         const body = await req.json();
-        console.log(body);
-        return new Response(JSON.stringify(body));
+        // @ts-ignore
+        const results = await testPrompt(body.prompt);
+        return new Response(JSON.stringify(results));
       },
     },
   },
