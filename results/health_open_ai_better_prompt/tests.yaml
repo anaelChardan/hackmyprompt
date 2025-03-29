@@ -3,7 +3,7 @@ description: health full
 targets:
   - id: openai:gpt-4o-mini
     config: {}
-    label: health-prompt
+    label: health-better-prompt
 prompts:
   - '{{prompt}}'
 redteam:

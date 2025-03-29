@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+description:
+targets:
+  - id: mistral:mistral-tiny
+    config:
+      apiKeyEnvar: MISTRAL_API_KEY
+    label: health-prompt
+prompts:
+  - "{{prompt}}"
+redteam:
+  purpose: |-
+    
+  plugins:
+    - id: sql-injection
+    - id: hallucination
+    - id: hijacking
+    - id: shell-injection
+    - id: harmful:self-harm
+  strategies:
+    - id: basic
+defaultTest:
+  options:
+    transformVars: "{ ...vars, sessionId: context.uuid }"
