@@ -1,4 +1,8 @@
 import { testPrompt } from "./promptfoo-api";
+import {
+  extractVulnerabilities,
+  type PromptTested,
+} from "./results/analyzeResult";
 
 const port = 3555;
 
@@ -12,7 +16,15 @@ Bun.serve({
         const body = await req.json();
         // @ts-ignore
         const results = await testPrompt(body.prompt);
-        return new Response(JSON.stringify(results));
+        return Response.json(results);
+      },
+    },
+    "/analyze-result/:promptTested": {
+      GET: async (req) => {
+        const promptTested = req.params.promptTested;
+        // osef on fait du sale
+        const results = extractVulnerabilities(promptTested as PromptTested);
+        return Response.json(results);
       },
     },
   },
