@@ -8,7 +8,7 @@
 	<div class="flex flex-col gap-6">
 		<div class="flex flex-col gap-2 justify-start text-left">
 			<p class="text-lg font-semibold">💥 {subject.label}</p>
-			<p class="text-sm text-muted-foreground w-3/4 text-balance">
+			<p class="text-sm text-muted-foreground text-balance">
 				{subject.description}
 			</p>
 		</div>
