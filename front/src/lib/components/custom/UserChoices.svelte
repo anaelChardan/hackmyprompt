@@ -34,7 +34,6 @@
 	const addSampleToQueryParam = async (sampleId: string) => {
 		const newUrl = new URL(window.location.href);
 		newUrl.searchParams.set("sampleId", sampleId);
-		window.history.pushState({}, "", newUrl);
 		await goto(newUrl);
 	};
 </script>

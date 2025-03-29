@@ -2,8 +2,13 @@
 	import { goto } from "$app/navigation";
 	import { onMount } from "svelte";
 	import ReportProblem from "./ReportProblem.svelte";
+	import { getResults } from "$lib";
+	import { page } from "$app/stores";
 
-	let { problems } = $props();
+	// let { problems } = $props();
+
+	let sampleId = $derived($page.url.searchParams.get("sampleId"));
+	let problems: any = $state(null);
 
 	const addSubjectIdToQueryParam = async (subjectId: string) => {
 		const newUrl = new URL(window.location.href);
@@ -13,16 +18,23 @@
 	};
 
 	onMount(() => {
-		// If no subjectId is present in the URL, set the first subject as default
-		const urlParams = new URLSearchParams(window.location.search);
-		const subjectId = urlParams.get("subjectId");
-		if (!subjectId && problems.length > 0) {
-			addSubjectIdToQueryParam(problems[0].id);
+		if (sampleId) {
+			problems = getResults(sampleId);
+			console.log("Problems:", problems);
 		}
+		// If no subjectId is present in the URL, set the first subject as default
+		// const urlParams = new URLSearchParams(window.location.search);
+		// const subjectId = urlParams.get("subjectId");
+		// if (!subjectId && problems.length > 0) {
+		// 	addSubjectIdToQueryParam(problems[0].id);
+		// }
 	});
 </script>
 
 <div class="w-full overflow-y-auto">
+	<p>
+		Sample Id : {sampleId}
+	</p>
 	<div class="py-4 px-8 border-b bg-sidebar sticky top-0 shadow z-50">
 		<p class="text-sm font-medium">
 			{problems.length} problems

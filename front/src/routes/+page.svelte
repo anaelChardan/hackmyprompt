@@ -4,26 +4,27 @@
 	import ReportProblemsList from "$lib/components/custom/ReportProblemsList.svelte";
 	import ProblemSolution from "$lib/components/custom/ProblemSolution.svelte";
 	import UserChoices from "$lib/components/custom/UserChoices.svelte";
+	import { page } from "$app/stores";
 
-	const getInputValue = (value: string) => {
-		console.log("Input value:", value);
-		inputValue = value;
-	};
+	// const getInputValue = (value: string) => {
+	// 	console.log("Input value:", value);
+	// 	inputValue = value;
+	// };
 
-	let inputValue = $state("");
+	// let inputValue = $state("");
 
-	const generateRandomScoreFromZeroToHundred = () => {
-		return Math.floor(Math.random() * 101);
-	};
+	// let problems: any = $state([]);
 
-	let problems: any = $state([]);
+	// let sampleId = $derived($page.url.searchParams.get("sampleId"));
+	// let problems = $derived(getResults(sampleId));
+	// let problem = $state(null);
 
-	let problem = $state(null);
-
-	onMount(() => {
-		problems = getResults();
-		console.log("Problems:", problems);
-	});
+	// onMount(() => {
+	// 	// get the sampleId from the URL
+	// 	const urlParams =
+	// 	problems = getResults();
+	// 	console.log("Problems:", problems);
+	// });
 </script>
 
 <svelte:head>
@@ -38,7 +39,7 @@
 	<!-- <UserInput {getInputValue} /> -->
 	<UserChoices />
 	<div class="border divide-x flex-1 h-full flex overflow-hidden">
-		<ReportProblemsList {problems} />
-		<ProblemSolution {problem} />
+		<ReportProblemsList />
+		<!-- <ProblemSolution {problem} /> -->
 	</div>
 </div>

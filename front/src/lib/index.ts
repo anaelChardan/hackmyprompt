@@ -1,7 +1,7 @@
 // place files you want to import through the `$lib` alias in this folder.
-import results from './health.json';
+import healthResults from './health.json';
 
-export const getResults = () => {
+export const getResults = (type: string) => {
     function getNamedScoresWithZero(data: any) {
         const zeroNamedScores: Map<string, number> = new Map();
 
@@ -27,6 +27,11 @@ export const getResults = () => {
 
 
     // Exemple d'utilisation
+
+    let results = null;
+    if (type === 'health') {
+        results = healthResults;
+    }
 
     const uniqueNamedScores = getNamedScoresWithZero(results);
     console.log('named scores', uniqueNamedScores);
