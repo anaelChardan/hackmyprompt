@@ -8,7 +8,7 @@
 
 <div class="grid border-t">
 	{#each problems as problem}
-		<Collapsible.Root>
+		<Collapsible.Root class="hover:bg-sidebar">
 			<Collapsible.Trigger class="w-full py-6">
 				<div class="flex items-center gap-4">
 					{#if problem.error}
@@ -17,16 +17,31 @@
 						<Check class="h-6 text-green-500" />
 					{/if}
 					<div class="pl-4">
-						<p class="font-semibold">
+						<h2>
 							{problem.name}
-						</p>
+						</h2>
 					</div>
 				</div>
 			</Collapsible.Trigger>
 			<Collapsible.Content>
-				<p class="text-sm text-muted-foreground text-balance w-2/3 pb-8">
-					{problem.description}
-				</p>
+				<!-- DESCRIPTION -->
+				<div>
+					<h3>Description</h3>
+					<p class="text-sm text-muted-foreground w-4/5 text-balance pb-8">
+						{problem.description}
+					</p>
+				</div>
+				<!-- SOLUTION -->
+				{#if problem.error == true}
+					<!-- content here -->
+					<div>
+						<h3>Possible solution</h3>
+						<p class="text-sm text-muted-foreground w-4/5 text-balance pb-8">
+							{problem.solution}
+						</p>
+					</div>
+				{/if}
+				<!-- WHY -->
 			</Collapsible.Content>
 		</Collapsible.Root>
 		<Separator />
