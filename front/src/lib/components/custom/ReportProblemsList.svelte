@@ -59,6 +59,7 @@
 		<div class="grid">
 			{#each problems as problem}
 				<button
+					class={problem.id === $page.url.searchParams.get("subjectId") ? "border-2 border-blue-500" : ""}
 					onclick={() => {
 						addSubjectIdToQueryParam(problem.id);
 					}}

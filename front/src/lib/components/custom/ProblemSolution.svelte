@@ -4,8 +4,18 @@
 	import vulnerabilities from "$lib/vulnerabilities.json";
 
 	// let { problem } = $props();
-
-	let currentVuln = $derived(vulnerabilities.find((v) => v.id === $page.url.searchParams.get("subjectId")));
+	const cleanAndLowerCase = (string: string) => {
+		// make lower and remove all special characters
+		return string
+			.toLowerCase()
+			.replace(/[^a-z0-9]/g, "")
+			.replace(/\s+/g, "");
+	};
+	let currentVuln = $derived(
+		vulnerabilities.find(
+			(v) => cleanAndLowerCase(v.id) === cleanAndLowerCase($page.url.searchParams.get("subjectId"))
+		)
+	);
 </script>
 
 <div class="p-8 w-full overflow-y-auto">
@@ -34,6 +44,13 @@
 				<p>
 					{currentVuln.better}
 				</p>
+				{#if currentVuln.better_example}
+					<p
+						class="text-muted-foreground text-sm italic text-balance p-2 bg-sidebar rounded border font-mono mb-8 mt-4"
+					>
+						{currentVuln.better_example}
+					</p>
+				{/if}
 			</div>
 			<div class="grid gap-2">
 				<p class="font-bold text-xl">Useful links</p>
