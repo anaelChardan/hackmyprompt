@@ -6,4 +6,12 @@
 </script>
 
 <Toaster />
-{@render children()}
+
+<div class="h-screen flex flex-col">
+	<!-- TOP NAV -->
+	<div class="sticky top-0 border-b p-4">
+		<p class="font-bold">Hack_My_Prompt</p>
+	</div>
+	<!-- CONTENT -->
+	{@render children()}
+</div>
