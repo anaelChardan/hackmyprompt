@@ -1,11 +1,7 @@
 // place files you want to import through the `$lib` alias in this folder.
-import results from './jj.json';
+import results from './health.json';
 
 export const getResults = () => {
-    // const resultsArray = results.results.results;
-    // const failedResults = resultsArray.filter(el => el.success === false);
-    // console.log('failedResults', failedResults);
-
     function getNamedScoresWithZero(data: any) {
         const zeroNamedScores: Map<string, number> = new Map();
 
@@ -17,14 +13,14 @@ export const getResults = () => {
                     const [key] = Object.entries(namedScores);
                     console.log('key', key);
 
+                    console.log('key[0]', key[0]);
+
                     if (key[1] === 0) {
-                        // alert(`alert ${key[0]} ${key[1]}`);
                         zeroNamedScores.set(key[0], key[1]);
                     }
                 }
             });
         }
-
         return zeroNamedScores;
     }
 
@@ -36,10 +32,15 @@ export const getResults = () => {
     console.log('named scores', uniqueNamedScores);
     // return map as array
     const namedScoresArray = Array.from(uniqueNamedScores, ([key, value]) => ({ key, value }));
-    return namedScoresArray.map(el => {
+    const data = namedScoresArray.map(el => {
         return {
             id: el.key,
             label: el.key
         };
     });
+
+    console.log('data', data);
+
+    console.log((data.map(el => el.label)));
+    return data;
 };
