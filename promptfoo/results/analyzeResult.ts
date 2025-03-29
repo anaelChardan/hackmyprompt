@@ -31,6 +31,20 @@ const promptTestedToResultFile: Record<PromptTested, any> = {
   educational_better_prompt: educationalBetterPrompt,
 };
 
+export function getPrompts(): Record<PromptTested, string> {
+  return {
+    culture_naive_prompt:
+      cultureNaivePrompt.config.defaultTest.metadata.purpose,
+    health_naive_prompt: healthNaivePrompt.config.defaultTest.metadata.purpose,
+    health_better_prompt:
+      healthBetterPrompt.config.defaultTest.metadata.purpose,
+    educational_naive_prompt:
+      educationalNaivePrompt.config.defaultTest.metadata.purpose,
+    educational_better_prompt:
+      educationalBetterPrompt.config.defaultTest.metadata.purpose,
+  };
+}
+
 export function extractVulnerabilities(test: PromptTested): Result {
   const resultFile = promptTestedToResultFile[test];
 
@@ -83,6 +97,3 @@ export function extractVulnerabilities(test: PromptTested): Result {
     passed_categories: Array.from(passedCategories),
   };
 }
-
-const vulnerabilities = extractVulnerabilities("culture_naive_prompt");
-console.dir(vulnerabilities, { depth: null });
