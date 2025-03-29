@@ -3,7 +3,7 @@
 	import { getResults } from "$lib";
 	import ReportProblemsList from "$lib/components/custom/ReportProblemsList.svelte";
 	import ProblemSolution from "$lib/components/custom/ProblemSolution.svelte";
-	import UserInput from "$lib/components/custom/UserInput.svelte";
+	import UserChoices from "$lib/components/custom/UserChoices.svelte";
 
 	const getInputValue = (value: string) => {
 		console.log("Input value:", value);
@@ -35,7 +35,8 @@
 </svelte:head>
 
 <div class="h-full overflow-hidden flex flex-col">
-	<UserInput {getInputValue} />
+	<!-- <UserInput {getInputValue} /> -->
+	<UserChoices />
 	<div class="border divide-x flex-1 h-full flex overflow-hidden">
 		<ReportProblemsList {problems} />
 		<ProblemSolution {problem} />
