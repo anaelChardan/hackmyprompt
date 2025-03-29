@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Separator } from "$lib/components/ui/separator/index.js";
-	import Progress from "../ui/progress/progress.svelte";
 
 	let { subject } = $props();
 </script>

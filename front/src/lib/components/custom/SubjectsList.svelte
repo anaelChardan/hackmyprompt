@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	import EducationRessource from "./EducationRessource.svelte";
 	import { page } from "$app/stores";
+	import SubjectItem from "./SubjectItem.svelte";
 
 	let { subjects } = $props();
 
@@ -10,6 +9,6 @@
 
 <div class="p-4 w-full overflow-y-auto">
 	{#if selectedSubject}
-		<EducationRessource subject={subjects.find((el: any) => el.id == selectedSubject)} />
+		<SubjectItem subject={subjects.find((el: any) => el.id == selectedSubject)} />
 	{/if}
 </div>

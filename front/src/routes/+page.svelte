@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { goto } from "$app/navigation";
-	import { page } from "$app/state";
-	import EducationRessources from "$lib/components/custom/EducationRessources.svelte";
 	import ReportStats from "$lib/components/custom/ReportStats.svelte";
+	import SubjectsList from "$lib/components/custom/SubjectsList.svelte";
 	import UserInput from "$lib/components/custom/UserInput.svelte";
 
 	const getInputValue = (value: string) => {
@@ -67,6 +65,6 @@
 	<UserInput {getInputValue} />
 	<div class="border divide-x flex-1 h-full flex overflow-hidden">
 		<ReportStats {subjects} />
-		<EducationRessources {subjects} />
+		<SubjectsList {subjects} />
 	</div>
 </div>
