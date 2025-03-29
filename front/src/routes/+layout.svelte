@@ -9,7 +9,7 @@
 
 <div class="h-screen flex flex-col">
 	<!-- TOP NAV -->
-	<div class="sticky top-0 border-b p-4 flex items-center justify-between gap-3">
+	<div class="sticky top-0 border-b p-4 flex items-center justify-between gap-3 bg-white">
 		<p class="font-bold">Hack_My_Prompt</p>
 		<p class="text-sm text-muted-foreground">
 			*All informations are provided for educational purposes only and are possibly inaccurate. Please do not use
