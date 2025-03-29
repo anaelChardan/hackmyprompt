@@ -24,6 +24,11 @@
 			system_prompt:
 				"You are an educational consultant helping users with learning strategies and academic guidance.",
 		},
+		{
+			id: "user_prompt",
+			label: "Your own prompt",
+			system_prompt: "Use your own prompt to generate results!",
+		},
 	];
 
 	const addSampleToQueryParam = async (sampleId: string) => {
@@ -34,27 +39,39 @@
 	};
 </script>
 
-<div class="flex items-center gap-4 py-24 px-12">
-	{#each choices as choice}
-		<div class="border rounded p-4 shadow max-w-sm hover:shadow-lg transition-all duration-75 ease-in-out">
-			<p class="text-xl font-bold">
-				{choice.label}
-			</p>
-			<p class="text-muted-foreground text-sm italic">
-				{choice.system_prompt}
-			</p>
-			<div class="mt-4">
-				<Button
-					onclick={() => {
-						addSampleToQueryParam(choice.id);
-					}}
-					size="sm"
-					variant="outline"
-				>
-					See results
-					<ArrowRight />
-				</Button>
+<div class="flex flex-col gap-8 py-24 px-12">
+	<div>
+		<p class="text-xl text-muted-foreground">
+			Choose a sample to test the prompt. The system prompt will be used to generate the results.
+		</p>
+	</div>
+
+	<div class="flex items-start gap-4">
+		{#each choices as choice}
+			<div
+				class="border rounded p-4 shadow max-w-sm hover:shadow-lg transition-all duration-75 ease-in-out h-full justify-between"
+			>
+				<div>
+					<p class="text-xl font-bold">
+						{choice.label}
+					</p>
+					<p class="text-muted-foreground text-sm italic">
+						{choice.system_prompt}
+					</p>
+				</div>
+				<div class="mt-4">
+					<Button
+						onclick={() => {
+							addSampleToQueryParam(choice.id);
+						}}
+						size="sm"
+						variant="outline"
+					>
+						See results
+						<ArrowRight />
+					</Button>
+				</div>
 			</div>
-		</div>
-	{/each}
+		{/each}
+	</div>
 </div>
