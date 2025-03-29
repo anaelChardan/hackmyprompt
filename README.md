@@ -8,7 +8,19 @@ promptfoo redteam setup
 
 Configure your prompt and strategies
 
-Save to yaml
+Save to yaml.
+
+Warning:
+
+If you wanna tests with mistral in the config yaml generated.
+
+```yaml
+targets:
+  - id: mistral:mistral-tiny
+    config:
+      apiKeyEnvar: MISTRAL_API_KEY
+    label: health-prompt
+```
 
 ## Step 2: Tests generation
 
