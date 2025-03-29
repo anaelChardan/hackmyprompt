@@ -24,13 +24,16 @@ export const getResults = (type: string) => {
         return zeroNamedScores;
     }
 
-
-
     // Exemple d'utilisation
 
     let results = null;
     if (type === 'health') {
         results = healthResults;
+    }
+
+    if (!results) {
+        console.error('No results found for the given type');
+        return [];
     }
 
     const uniqueNamedScores = getNamedScoresWithZero(results);

@@ -1,11 +1,7 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	import { getResults } from "$lib";
 	import ReportProblemsList from "$lib/components/custom/ReportProblemsList.svelte";
-	import ProblemSolution from "$lib/components/custom/ProblemSolution.svelte";
 	import UserChoices from "$lib/components/custom/UserChoices.svelte";
-	import { page } from "$app/stores";
-
+	import ProblemSolution from "$lib/components/custom/ProblemSolution.svelte";
 	// const getInputValue = (value: string) => {
 	// 	console.log("Input value:", value);
 	// 	inputValue = value;
@@ -40,6 +36,6 @@
 	<UserChoices />
 	<div class="border divide-x flex-1 h-full flex overflow-hidden">
 		<ReportProblemsList />
-		<!-- <ProblemSolution {problem} /> -->
+		<ProblemSolution />
 	</div>
 </div>

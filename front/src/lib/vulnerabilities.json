@@ -1,0 +1,370 @@
+[
+	{
+		"type": "Security Vulnerabilities",
+		"name": "ASCII Smuggling",
+		"id": "ascii-smuggling",
+		"label": "Attempts to obfuscate malicious content using ASCII smuggling"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "BeaverTails",
+		"id": "beavertails",
+		"label": "Uses the BeaverTails prompt injection dataset"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Cross-Session Leak",
+		"id": "cross-session-leak",
+		"label": "Checks for information sharing between unrelated sessions"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "CyberSecEval",
+		"id": "cyberseceval",
+		"label": "Tests prompt injection attacks using the CyberSecEval dataset"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Debug Access",
+		"id": "debug-access",
+		"label": "Attempts to access or use debugging commands"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Divergent Repetition",
+		"id": "divergent-repetition",
+		"label": "Tests whether an AI system can be manipulated into revealing its training data through repetitive pattern exploitation."
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Harmbench",
+		"id": "harmbench",
+		"label": "Tests prompt injection attacks using the Harmbench dataset"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Hijacking",
+		"id": "Hijacking",
+		"label": "Unauthorized or off-topic resource use",
+		"description": "The Hijacking plugin tests whether a language model can be distracted or misled from its intended system role by cleverly crafted, superficially related queries. It simulates realistic attempts to manipulate the AI into responding to tasks that fall outside its designated function.",
+		"why": "It's essential because hijacked AI systems can become open proxies, enabling misuse or data leakage. If an AI meant to be a travel agent starts offering economic statistics or investment advice, it blurs operational boundaries and increases security and trust risks—especially in publicly accessible LLM endpoints.",
+		"better": "To improve, clearly define system instructions and purpose in the prompt, implement strong refusal mechanisms for out-of-scope queries, reinforce boundary awareness during model fine-tuning, and monitor for consistent purpose adherence in logs. Employ purpose-specific guardrails or classifiers to detect and flag hijacking attempts in real time.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#hijacking",
+			"https://arxiv.org/abs/2310.03635",
+			"https://blog.promptingguide.ai/posts/hijacking-llms/"
+		]
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Indirect Prompt Injection",
+		"id": "indirect-prompt-injection",
+		"label": "Tests if the prompt is vulnerable to instructions injected into variables in the prompt"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Malicious Code",
+		"id": "harmful:cybercrime:malicious-code",
+		"label": "Tests creation of malicious code"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Malicious Resource Fetching",
+		"id": "ssrf",
+		"label": "Server-Side Request Forgery (SSRF) tests"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Pliny",
+		"id": "pliny",
+		"label": "Tests LLM systems using a curated collection of prompts from https://github.com/elder-plinius/L1B3RT4S"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Privilege Escalation",
+		"id": "bfla",
+		"label": "Broken Function Level Authorization (BFLA) tests"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Prompt Extraction",
+		"id": "prompt-extraction",
+		"label": "Attempts to get the model to reveal its system prompt"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "RAG Document Exfiltration",
+		"id": "rag-document-exfiltration",
+		"label": "Content related to RAG Document Exfiltration"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "RBAC Enforcement",
+		"id": "rbac",
+		"label": "Tests whether the model properly implements Role-Based Access Control (RBAC)"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Reasoning DoS",
+		"id": "reasoning-dos",
+		"label": "Tests for vulnerability to computational resource exhaustion through excessive reasoning patterns. Applicable to reasoning models."
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Shell Injection",
+		"id": "shell-injection",
+		"label": "Attempts to execute shell commands through the model"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "SQL Injection",
+		"id": "SqlInjection",
+		"label": "Attempts to perform SQL injection attacks to manipulate database queries"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "System Prompt Override",
+		"id": "system-prompt-override",
+		"label": "Tests if an AI system can be manipulated to ignore or override its original system prompt"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Tool Discovery",
+		"id": "tool-discovery",
+		"label": "Tests if an AI system reveals the list of tools, functions, or API calls it has access to"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Unauthorized Data Access",
+		"id": "bola",
+		"label": "Broken Object Level Authorization (BOLA) tests"
+	},
+	{
+		"type": "Privacy Vulnerabilities",
+		"name": "Direct PII Exposure",
+		"id": "pii:direct",
+		"label": "Direct exposure of PII"
+	},
+	{
+		"type": "Privacy Vulnerabilities",
+		"name": "PII in API/Database",
+		"id": "pii:api-db",
+		"label": "PII exposed through API or database"
+	},
+	{
+		"type": "Privacy Vulnerabilities",
+		"name": "PII in Session Data",
+		"id": "pii:session",
+		"label": "PII exposed in session data"
+	},
+	{
+		"type": "Privacy Vulnerabilities",
+		"name": "PII via Social Engineering",
+		"id": "pii:social",
+		"label": "PII exposed through social engineering"
+	},
+	{
+		"type": "Privacy Vulnerabilities",
+		"name": "Privacy Violation",
+		"id": "harmful:privacy",
+		"label": "Content violating privacy rights"
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Chemical & Biological Weapons",
+		"id": "harmful:chemical-biological-weapons",
+		"label": "Content related to chemical or biological weapons"
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Child Exploitation",
+		"id": "harmful:child-exploitation",
+		"label": "Content exploiting or harming children"
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Copyright Violations",
+		"id": "harmful:copyright-violations",
+		"label": "Content violating copyright laws"
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Cybercrime",
+		"id": "harmful:cybercrime",
+		"label": "Content related to cybercriminal activities"
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "IEDs",
+		"id": "harmful:weapons:ied",
+		"label": "Content related to creating Improvised Explosive Devices"
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Illegal Activities",
+		"id": "harmful:illegal-activities",
+		"label": "Content promoting illegal activities"
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Illegal Drugs",
+		"id": "harmful:illegal-drugs",
+		"label": "Content related to illegal drug use or trade"
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Indiscriminate Weapons",
+		"id": "harmful:indiscriminate-weapons",
+		"label": "Content related to weapons without context"
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Intellectual Property Violation",
+		"id": "harmful:intellectual-property",
+		"label": "Content violating intellectual property rights"
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Malicious Code",
+		"id": "harmful:cybercrime:malicious-code",
+		"label": "Content related to generating malicious code"
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Methamphetamine",
+		"id": "harmful:illegal-drugs:meth",
+		"label": "Content related to methamphetamine"
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Non-Violent Crime",
+		"id": "harmful:non-violent-crime",
+		"label": "Content related to non-violent criminal activities"
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Sex Crimes",
+		"id": "harmful:sex-crime",
+		"label": "Content related to sexual crimes"
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Violent Crime",
+		"id": "harmful:violent-crime",
+		"label": "Content related to violent criminal activities"
+	},
+	{
+		"type": "Harmful Activity",
+		"name": "Graphic Content",
+		"id": "harmful:graphic-content",
+		"label": "Displaying graphic or violent content"
+	},
+	{
+		"type": "Harmful Activity",
+		"name": "Harassment and Bullying",
+		"id": "harmful:harassment-bullying",
+		"label": "Content that harasses or bullies individuals"
+	},
+	{
+		"type": "Harmful Activity",
+		"name": "Hate Speech",
+		"id": "harmful:hate",
+		"label": "Content that promotes hate or discrimination"
+	},
+	{
+		"type": "Harmful Activity",
+		"name": "Insults",
+		"id": "harmful:insults",
+		"label": "Content that insults or demeans individuals"
+	},
+	{
+		"type": "Harmful Activity",
+		"name": "Profanity",
+		"id": "harmful:profanity",
+		"label": "Content containing profane or inappropriate language"
+	},
+	{
+		"type": "Harmful Activity",
+		"name": "Radicalization",
+		"id": "harmful:radicalization",
+		"label": "Content that promotes radical or extremist views"
+	},
+	{
+		"type": "Harmful Activity",
+		"name": "Self Harm",
+		"id": "harmful:self-harm",
+		"label": "Content that encourages self-harm or suicide"
+	},
+	{
+		"type": "Harmful Activity",
+		"name": "Sexual Content",
+		"id": "harmful:sexual-content",
+		"label": "Explicit or inappropriate sexual content"
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Competitor Endorsement",
+		"id": "competitors",
+		"label": "Competitor mentions and endorsements"
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Excessive Agency",
+		"id": "excessive-agency",
+		"label": "Model taking excessive initiative or misunderstanding its capabilities"
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Hallucination",
+		"id": "hallucination",
+		"label": "Model generating false or misleading information"
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Imitation",
+		"id": "imitation",
+		"label": "Imitates people, brands, or organizations"
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Misinformation and Disinformation",
+		"id": "harmful:misinformation-disinformation",
+		"label": "Spreading false or misleading information"
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Overreliance",
+		"id": "overreliance",
+		"label": "Model susceptible to relying on an incorrect user assumption or input"
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Political Opinions",
+		"id": "politics",
+		"label": "Makes political statements"
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Religious Sensitivity",
+		"id": "religion",
+		"label": "Tests handling of religious content and bias"
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Specialized Advice",
+		"id": "harmful:specialized-advice",
+		"label": "Providing advice in specialized fields without expertise"
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Unsafe Practices",
+		"id": "harmful:unsafe-practices",
+		"label": "Content promoting unsafe or harmful practices"
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Unsupervised Contracts",
+		"id": "contracts",
+		"label": "Enters business or legal commitments without supervision"
+	}
+]
