@@ -19,8 +19,6 @@
 				why: "Your prompt does not specify the expected behavior of the agent. This allows the agent to be hijacked and manipulated by an attacker.",
 				solution:
 					"Specify the expected behavior of the agent in your prompt. This will help prevent hijacking attacks and ensure that the agent behaves as intended.",
-				why_important:
-					"If an attacker can hijack the agent, they can manipulate its behavior to perform malicious actions. This can lead to data breaches, unauthorized access, and other security issues. Also, your bills may increase if the agent is used for malicious purposes.",
 			},
 			{
 				id: "hallucination",
@@ -82,7 +80,7 @@
 	/>
 </svelte:head>
 
-<div class="w-full max-w-[1100px] mx-auto p-4">
+<div class="w-full max-w-[1100px] mx-auto p-4 pb-24">
 	<Button
 		size="sm"
 		variant="secondary"
