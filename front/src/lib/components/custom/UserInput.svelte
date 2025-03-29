@@ -7,10 +7,10 @@
 	let inputValue = $state("");
 
 	const placeholders = [
-		"Drop your system prompt below… and let the red team do the rest.",
-		"Hack My Prompt is an educational application to improve your prompt engineering skills.",
-		"Learn about AI agent attack vectors and how to defend against them.",
-		"Explore the world of AI and prompt engineering with Hack My Prompt.",
+		"Déposez votre invite système ci-dessous… et laissez l'équipe rouge faire le reste.",
+		"Hack My Prompt est une application éducative pour améliorer vos compétences en ingénierie d'invite.",
+		"Découvrez les vecteurs d'attaque des agents IA et comment vous en défendre.",
+		"Explorez le monde de l'IA et de l'ingénierie d'invite avec Hack My Prompt.",
 	];
 
 	let currentIndex = 0;
