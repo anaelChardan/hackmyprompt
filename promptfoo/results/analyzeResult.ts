@@ -97,3 +97,12 @@ export function extractVulnerabilities(test: PromptTested): Result {
     passed_categories: Array.from(passedCategories),
   };
 }
+
+export function getAllResults(): Record<PromptTested, Result> {
+  return Object.fromEntries(
+    Object.entries(promptTestedToResultFile).map(([key, value]) => [
+      key,
+      extractVulnerabilities(key as PromptTested),
+    ])
+  );
+}

@@ -1,5 +1,6 @@
 import {
   extractVulnerabilities,
+  getAllResults,
   getPrompts,
   type PromptTested,
 } from "./results/analyzeResult";
@@ -22,6 +23,12 @@ Bun.serve({
       GET: async (req) => {
         const prompts = getPrompts();
         return Response.json(prompts);
+      },
+    },
+    "/all-results": {
+      GET: async (req) => {
+        const results = getAllResults();
+        return Response.json(results);
       },
     },
     "/analyze-result/:promptTested": {
