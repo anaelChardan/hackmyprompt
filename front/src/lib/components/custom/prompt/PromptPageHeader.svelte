@@ -23,8 +23,8 @@
 
 	const textBasedOnScore = (score: string) => {
 		const scoreN = parseInt(score);
-		if (scoreN < 3) return "This prompt is not good, be careful !";
-		if (scoreN < 6) return "This prompt is ok, but...";
+		if (scoreN < 3) return "This system prompt is not good, be careful !";
+		if (scoreN < 6) return "This system prompt is ok, but...";
 		return "This prompt seems to be good !";
 	};
 
@@ -36,7 +36,7 @@
 <div class="py-12 flex flex-col items-center justify-center gap-4">
 	<div>
 		<h1>
-			{text}
+			{better_prompt ? "This system prompt is great!" : text}
 		</h1>
 		<!-- <p class="text-sm text-muted-foreground">
 			<span class="text-4xl font-bold {scoreColorClass(better_prompt ? '7' : score)}">

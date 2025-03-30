@@ -25,6 +25,21 @@
 			replaceState: false,
 		});
 	};
+
+	const transformWhyBetterPrompt = (str) => {
+		// split by - and make each part a new line
+		const parts = str.split("-");
+		const transformedParts = parts.map((part) => {
+			// remove leading and trailing spaces
+			const trimmedPart = part.trim();
+			// add a new line
+			return trimmedPart;
+		});
+
+		// join the parts with a new line
+		const transformedStr = transformedParts.join("\n");
+		return transformedStr;
+	};
 </script>
 
 {#if !betterPrompt}
@@ -54,7 +69,13 @@
 
 {#if whyBetterPrompt}
 	<p class="text-xl font-bold">Why this is better ✨</p>
-	<p class="text-lg max-w-3xl text-balance">
+	<!-- <p class="text-lg max-w-3xl text-balance">
 		{whyBetterPrompt}
-	</p>
+		{transformWhyBetterPrompt(whyBetterPrompt)}
+	</p> -->
+	<div class="grid gap-2 max-w-3xl">
+		<p class="whitespace-pre-line text-balance">
+			{whyBetterPrompt.replace("**", "")}
+		</p>
+	</div>
 {/if}
