@@ -3,25 +3,30 @@
 	import * as Accordion from "$lib/components/ui/accordion/index.js";
 	import { AlertTriangle, Check, CheckCircle2 } from "@lucide/svelte";
 
-	let { problems } = $props();
+	let { problems, passed } = $props();
 
-	let failed = $state(problems.filter((el: any) => el.error === true));
-	let passed = $state(problems.filter((el: any) => el.error !== true));
+	const firstLetterUpperCase = (str: string) => {
+		return str.charAt(0).toUpperCase() + str.slice(1);
+	};
 </script>
 
 <div class="grid gap-24 mt-12">
+	<!-- <pre>
+		Problems :
+		{JSON.stringify(problems, null, 2)}
+	</pre> -->
 	<div class="grid">
 		<div class="mb-4 flex items-center w-full justify-center">
 			<p
 				class="bg-red-100 border-red-300 border rounded text-red-800 max-w-max px-3 py-1 flex items-center text-sm"
 			>
 				<AlertTriangle class="h-4 -ml-1 mr-2" />
-				{failed.length}
-				Failed
+				{problems.length}
+				problems
 			</p>
 		</div>
 
-		{#each failed as problem}
+		{#each problems as problem}
 			<Accordion.Root
 				type="single"
 				class="hover:bg-sidebar"
@@ -29,14 +34,11 @@
 				<Accordion.Item value="item-1">
 					<Accordion.Trigger class="w-full py-6">
 						<div class="flex items-center gap-4 px-4">
-							{#if problem.error}
-								<AlertTriangle class="h-6 text-red-500" />
-							{:else}
-								<Check class="h-6 text-green-500" />
-							{/if}
+							<AlertTriangle class="h-6 text-red-500" />
+
 							<div class="pl-4 flex flex-col text-left">
 								<h2>
-									{problem.name}
+									{firstLetterUpperCase(problem.vulnerability_kind)}
 								</h2>
 								<p class="text-sm text-muted-foreground w-4/5 text-balance">
 									{problem.description}
@@ -45,25 +47,20 @@
 						</div>
 					</Accordion.Trigger>
 					<Accordion.Content>
-						<!-- SOLUTION -->
-						{#if problem.error == true}
-							<div class="pl-24">
-								<h3>Possible solution</h3>
+						<div class="pl-24">
+							<h3>Why your prompt is problematic</h3>
+							<p class="text-sm text-muted-foreground w-4/5 text-balance pb-8">
+								{problem.error_detected}
+							</p>
+							<div class="py-2">
 								<p class="text-sm text-muted-foreground w-4/5 text-balance pb-8">
-									{problem.solution}
+									The user prompt that hacked your system prompt :
+								</p>
+								<p class="px-2 py-2 font-mono border bg-white max-w-lg rounded text-lg">
+									{problem.test_prompt}
 								</p>
 							</div>
-						{/if}
-
-						<!-- WHY -->
-						{#if problem.error == true}
-							<div class="pl-24">
-								<h3>Why the prompt failed</h3>
-								<p class="text-sm text-muted-foreground w-4/5 text-balance pb-8">
-									{problem.why}
-								</p>
-							</div>
-						{/if}
+						</div>
 					</Accordion.Content>
 				</Accordion.Item>
 			</Accordion.Root>
@@ -81,7 +78,7 @@
 			</p>
 		</div>
 
-		{#each passed as problem}
+		{#each passed as pass}
 			<Accordion.Root
 				type="single"
 				class="hover:bg-sidebar"
@@ -92,24 +89,21 @@
 						disabled
 					>
 						<div class="flex items-center gap-4 px-4">
-							{#if problem.error}
-								<AlertTriangle class="h-6 text-red-500" />
-							{:else}
-								<Check class="h-6 text-green-500" />
-							{/if}
+							<Check class="h-6 text-green-500" />
+
 							<div class="pl-4 flex flex-col text-left">
 								<h2>
-									{problem.name}
+									{firstLetterUpperCase(pass)}
 								</h2>
-								<p class="text-sm text-muted-foreground w-4/5 text-balance">
+								<!-- <p class="text-sm text-muted-foreground w-4/5 text-balance">
 									{problem.description}
-								</p>
+								</p> -->
 							</div>
 						</div>
 					</Accordion.Trigger>
 					<Accordion.Content>
 						<!-- SOLUTION -->
-						{#if problem.error == true}
+						<!-- {#if problem.error == true}
 							<div class="pl-24">
 								<h3>Possible solution</h3>
 								<p class="text-sm text-muted-foreground w-4/5 text-balance pb-8">
@@ -118,15 +112,15 @@
 							</div>
 						{/if}
 
-						<!-- WHY -->
+
 						{#if problem.error == true}
 							<div class="pl-24">
-								<h3>Why the prompt failed</h3>
+								<h3>Why the prompt problems</h3>
 								<p class="text-sm text-muted-foreground w-4/5 text-balance pb-8">
 									{problem.why}
 								</p>
 							</div>
-						{/if}
+						{/if} -->
 					</Accordion.Content>
 				</Accordion.Item>
 			</Accordion.Root>
