@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { page } from "$app/stores";
-	import PromptPageFixAllButton from "$lib/components/custom/prompt/PromptPageFixAllButton.svelte";
 	import PromptPageHeader from "$lib/components/custom/prompt/PromptPageHeader.svelte";
 	import PromptPageProblemsList from "$lib/components/custom/prompt/PromptPageProblemsList.svelte";
-	import PromptPagePrompt from "$lib/components/custom/prompt/PromptPagePrompt.svelte";
 	import Button from "$lib/components/ui/button/button.svelte";
 	import { ArrowLeft } from "@lucide/svelte";
 

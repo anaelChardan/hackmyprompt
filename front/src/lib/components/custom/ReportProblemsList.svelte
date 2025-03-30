@@ -10,33 +10,12 @@
 	let sampleId: string = $derived($page.url.searchParams.get("sampleId") || "");
 	let problems: any = $derived(getResults(sampleId) || []);
 
-	//
-	// 	$effect(() => {
-	// 		if (sampleId) {
-	// 			problems = getResults(sampleId);
-	// 			console.log("Problems:", problems);
-	// 		}
-	// 	});
-
 	const addSubjectIdToQueryParam = async (subjectId: string) => {
 		const newUrl = new URL(window.location.href);
 		newUrl.searchParams.set("subjectId", subjectId);
 		window.history.pushState({}, "", newUrl);
 		await goto(newUrl);
 	};
-
-	// onMount(() => {
-	// 	if (sampleId) {
-	// 		problems = getResults(sampleId);
-	// 		console.log("Problems:", problems);
-	// 	}
-	// 	// If no subjectId is present in the URL, set the first subject as default
-	// 	// const urlParams = new URLSearchParams(window.location.search);
-	// 	// const subjectId = urlParams.get("subjectId");
-	// 	// if (!subjectId && problems.length > 0) {
-	// 	// 	addSubjectIdToQueryParam(problems[0].id);
-	// 	// }
-	// });
 </script>
 
 <div class="w-full overflow-y-auto">
