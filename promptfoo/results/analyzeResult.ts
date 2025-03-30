@@ -12,6 +12,7 @@ type Vulnerability = {
 };
 
 type Result = {
+  score: number;
   vulnerabilities: Vulnerability[];
   passed_categories: string[];
 };
@@ -37,7 +38,7 @@ export function getPrompts(): Record<
     category: string;
     kind: string;
     prompt: string;
-    prompt_tested: string;
+    id: string;
   }
 > {
   return {
@@ -45,31 +46,31 @@ export function getPrompts(): Record<
       category: "Culture",
       kind: "naive",
       prompt: cultureNaivePrompt.config.defaultTest.metadata.purpose,
-      prompt_tested: "culture_naive_prompt",
+      id: "culture_naive_prompt",
     },
     health_naive_prompt: {
       category: "Health",
       kind: "naive",
       prompt: healthNaivePrompt.config.defaultTest.metadata.purpose,
-      prompt_tested: "health_naive_prompt",
+      id: "health_naive_prompt",
     },
     health_better_prompt: {
       category: "Health",
       kind: "better",
       prompt: healthBetterPrompt.config.defaultTest.metadata.purpose,
-      prompt_tested: "health_better_prompt",
+      id: "health_better_prompt",
     },
     educational_naive_prompt: {
       category: "Educational",
       kind: "naive",
       prompt: educationalNaivePrompt.config.defaultTest.metadata.purpose,
-      prompt_tested: "educational_naive_prompt",
+      id: "educational_naive_prompt",
     },
     educational_better_prompt: {
       category: "Educational",
       kind: "better",
       prompt: educationalBetterPrompt.config.defaultTest.metadata.purpose,
-      prompt_tested: "educational_better_prompt",
+      id: "educational_better_prompt",
     },
   };
 }
@@ -120,12 +121,18 @@ export function extractVulnerabilities(test: PromptTested): Result {
   }
 
   const vulnerabilities = Array.from(vulnerabilityGroupedByKind.values());
+  const realPassedCategories = Array.from(passedCategories).filter(
+    (c) => !vulnerabilityGroupedByKind.has(c)
+  );
 
+  const score =
+    (realPassedCategories.length /
+      (vulnerabilities.length + realPassedCategories.length)) *
+    100;
   return {
+    score: score.toFixed(2),
     vulnerabilities,
-    passed_categories: Array.from(passedCategories).filter(
-      (c) => !vulnerabilityGroupedByKind.has(c)
-    ),
+    passed_categories: realPassedCategories,
   };
 }
 

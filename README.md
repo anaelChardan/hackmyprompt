@@ -1,6 +1,14 @@
-# How to reproduce a result from Promptfoo
+# Hack-my-prompt
 
-## Step 1: Tests configuration
+# Backend
+
+You need `bun` to be install, then all routes are exposed from the `index.ts`
+
+## How to generate a result from Promptfoo
+
+Obviously, you need promptfoo install
+
+### Step 1: Tests configuration
 
 ```sh
 promptfoo redteam setup
@@ -22,13 +30,13 @@ targets:
     label: health-prompt
 ```
 
-## Step 2: Tests generation
+### Step 2: Tests generation
 
 ```sh
 promptfoo redteam generate -c health_config.yaml -j 10 --force --verbose -o health_tests.yaml
 ```
 
-## Step 3: Test evaluation
+### Step 3: Test evaluation
 
 ```sh
 promptfoo redteam eval -c health_tests.yaml --output=health.json -j 10 --verbose
