@@ -83,9 +83,16 @@ function extractDetailsFromVulnerability(vulnerabilityId: string) {
     (v) => v.id === vulnerabilityId
   );
 
+  if (!vulnerability) {
+    return {
+      name: "unknown",
+      description: "unknown",
+    };
+  }
+
   return {
-    name: vulnerability?.name,
-    description: vulnerability?.description,
+    name: vulnerability.name,
+    description: vulnerability.description,
   };
 }
 
@@ -103,8 +110,6 @@ export function extractVulnerabilities(test: PromptTested): Result {
       score: "0",
       vulnerabilities: [],
       passed_categories: [],
-      name: "",
-      description: "",
     };
   }
 
