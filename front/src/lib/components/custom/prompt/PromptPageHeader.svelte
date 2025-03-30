@@ -31,7 +31,7 @@
 <div class="py-12 flex flex-col items-center justify-center gap-4">
 	<div>
 		<p class="text-sm text-muted-foreground">
-			<span class="text-4xl font-bold {scoreColorClass(score)}">
+			<span class="text-4xl font-bold {colorclass}">
 				{better_prompt ? "7" : score}
 			</span>
 			/ 7

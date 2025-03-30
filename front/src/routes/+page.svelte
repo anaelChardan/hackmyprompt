@@ -86,15 +86,28 @@
 	/>
 </svelte:head>
 
-<Dialog.Root open={dialogOpen}>
+<Dialog.Root
+	open={dialogOpen}
+	onOpenChange={(open) => {
+		dialogOpen = open;
+	}}
+>
 	<Dialog.Content>
-		<Dialog.Header>
-			<Dialog.Title>Are you sure absolutely sure?</Dialog.Title>
-			<Dialog.Description>
-				This action cannot be undone. This will permanently delete your account and remove your data from our
-				servers.
-			</Dialog.Description>
-		</Dialog.Header>
+		<div class="grid gap-8">
+			<div class="grid gap-3">
+				<p class="text-2xl font-bold">Premium feature</p>
+
+				<p>
+					Using your own prompt is a premium feature. You can use the default prompts or subscribe to our
+					premium plan to unlock this feature.
+				</p>
+			</div>
+
+			<Button class="bg-indigo-600 text-white hover:bg-indigo-700">
+				Subscribe to premium
+				<ArrowRight class="h-4 mr-2" />
+			</Button>
+		</div>
 	</Dialog.Content>
 </Dialog.Root>
 

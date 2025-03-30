@@ -29,7 +29,7 @@
 
 {#if !betterPrompt}
 	<Button
-		class="bg-purple-600 text-white max-w-max hover:bg-purple-700 transition-colors duration-200 ease-in-out"
+		class="bg-indigo-600 text-white w-full max-w-sm hover:bg-indigo-700 transition-colors duration-200 ease-in-out"
 		onclick={getBetterPrompt}
 		disabled={loadingBetterPrompt}
 	>
