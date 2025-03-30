@@ -43,6 +43,8 @@
 {/if}
 
 {#if betterPrompt}
+	<p class="text-xl font-bold">Secured prompt</p>
+
 	<div class="p-4 bg-sidebar rounded-md max-w-3xl border-2 border-green-500">
 		<p class="font-mono text-center text-balance">
 			{betterPrompt}

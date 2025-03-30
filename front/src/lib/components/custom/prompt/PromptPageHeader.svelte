@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from "$app/stores";
 	import PromptPageFixAllButton from "./PromptPageFixAllButton.svelte";
 	import PromptPagePrompt from "./PromptPagePrompt.svelte";
 
