@@ -46,7 +46,7 @@
 	<p class="text-xl font-bold">Secured prompt</p>
 
 	<div class="p-4 bg-sidebar rounded-md max-w-3xl border-2 border-green-500">
-		<p class="font-mono text-center text-balance">
+		<p class="font-mono text-balance">
 			{betterPrompt}
 		</p>
 	</div>
@@ -54,7 +54,7 @@
 
 {#if whyBetterPrompt}
 	<p class="text-xl font-bold">Why this is better ✨</p>
-	<p class="text-lg text-center max-w-lg text-balance">
+	<p class="text-lg max-w-3xl text-balance">
 		{whyBetterPrompt}
 	</p>
 {/if}

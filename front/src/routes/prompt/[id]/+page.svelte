@@ -10,7 +10,8 @@
 	let prompt = $derived(data.prompt.vulnerabilities[0].input_system_prompt);
 	let problems = $derived(data.prompt.vulnerabilities);
 	let passed = $derived(data.prompt.passed_categories);
-
+	let score = $derived(data.prompt.score);
+	console.log("score", data.prompt.score);
 	let better_prompt = $derived($page.url.searchParams.get("better_prompt"));
 </script>
 
@@ -34,7 +35,10 @@
 		<ArrowLeft class="mr-2 h-4" />
 		Back to home
 	</Button>
-	<PromptPageHeader {prompt} />
+	<PromptPageHeader
+		{prompt}
+		{score}
+	/>
 	<PromptPageProblemsList
 		problems={better_prompt ? [] : problems}
 		passed={!better_prompt ? passed : [...problems, ...passed]}

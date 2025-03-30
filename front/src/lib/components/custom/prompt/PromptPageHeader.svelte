@@ -14,23 +14,27 @@
 	} = $props();
 
 	const scoreColorClass = (score: number) => {
-		if (score < 4) {
+		console.dir({ score });
+		if (score < 3) {
 			return "text-red-500";
-		} else if (score < 7) {
-			return "text-yellow-500";
-		} else {
-			return "text-green-500";
+		} else if (score < 6) {
+			return "text-orange-500";
 		}
+		return "text-green-500";
 	};
+
+	let colorclass = $derived(scoreColorClass(parseInt(score)));
+
+	let better_prompt = $derived($page.url.searchParams.get("better_prompt"));
 </script>
 
 <div class="py-12 flex flex-col items-center justify-center gap-4">
 	<div>
 		<p class="text-sm text-muted-foreground">
 			<span class="text-4xl font-bold {scoreColorClass(score)}">
-				{score}
+				{better_prompt ? "7" : score}
 			</span>
-			/ 10
+			/ 7
 		</p>
 	</div>
 

@@ -60,7 +60,7 @@
 								<div class="grid gap-2">
 									<h3>The response of the agent</h3>
 									<p class="px-2 py-2 font-mono border bg-white max-w-lg rounded">
-										{problem.test_prompt}
+										{problem.test_result.slice(0, 500) + "..."}
 									</p>
 								</div>
 								<div class="grid gap-2">
