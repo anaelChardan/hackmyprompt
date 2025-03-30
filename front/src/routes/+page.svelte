@@ -1,4 +1,5 @@
 <script lang="ts">
+	import * as Dialog from "$lib/components/ui/dialog/index.js";
 	import Button from "$lib/components/ui/button/button.svelte";
 	import {
 		ArrowRight,
@@ -9,6 +10,18 @@
 		Smile,
 		Sparkles,
 	} from "@lucide/svelte";
+
+	import img0 from "$lib/components/images/hack-0.jpeg";
+	import img1 from "$lib/components/images/hack-1.jpeg";
+	import img2 from "$lib/components/images/hack-2.jpeg";
+	import img3 from "$lib/components/images/hack-3.jpeg";
+	import img4 from "$lib/components/images/hack-4.jpeg";
+	import img5 from "$lib/components/images/hack-5.jpeg";
+	import img6 from "$lib/components/images/hack-6.jpeg";
+	import img7 from "$lib/components/images/hack-7.jpeg";
+	import img8 from "$lib/components/images/hack-8.jpeg";
+	import img9 from "$lib/components/images/hack-9.jpeg";
+	import { goto } from "$app/navigation";
 
 	const samples = $state([
 		{
@@ -35,17 +48,34 @@
 	]);
 
 	const hacks = [
-		{ label: "GDPR issues", url: "/gdpr-issues" },
-		{ label: "Agent empowerment", url: "/agent-empowerment" },
-		{ label: "Political opinion", url: "/political-opinion" },
-		{ label: "Unsupervised Contracts", url: "/unsupervised-contracts" },
-		{ label: "Hallucination", url: "/hallucination" },
-		{ label: "Hijacking", url: "/hijacking" },
-		{ label: "Harmful", url: "/harmful" },
+		{ label: "GDPR issues", url: img0 },
+		{ label: "Agent empowerment", url: img1 },
+		{ label: "Political opinion", url: img2 },
+		{ label: "Unsupervised Contracts", url: img3 },
+		{ label: "Hallucination", url: img4 },
+		{ label: "Hijacking", url: img5 },
+		{ label: "Harmful", url: img6 },
 	];
 
 	let prompt = $state("");
 	let promptId = $state("");
+
+	let dialogOpen = $state(false);
+
+	const navigateOrDialog = async () => {
+		const prompts = samples.map((el) => el.system_prompt);
+		const nextUrl = `/loading?from=${promptId}`;
+
+		console.log("prompt", prompts);
+
+		if (!prompts.includes(prompt)) {
+			dialogOpen = true;
+		} else {
+			await goto(nextUrl, {
+				replaceState: false,
+			});
+		}
+	};
 </script>
 
 <svelte:head>
@@ -56,7 +86,19 @@
 	/>
 </svelte:head>
 
-<div class="h-full overflow-hidden flex flex-col items-center">
+<Dialog.Root open={dialogOpen}>
+	<Dialog.Content>
+		<Dialog.Header>
+			<Dialog.Title>Are you sure absolutely sure?</Dialog.Title>
+			<Dialog.Description>
+				This action cannot be undone. This will permanently delete your account and remove your data from our
+				servers.
+			</Dialog.Description>
+		</Dialog.Header>
+	</Dialog.Content>
+</Dialog.Root>
+
+<div class="h-full flex flex-col items-center">
 	<div class="w-full max-w-4xl text-balance grid gap-4 text-center pt-16">
 		<h1 class="text-5xl">Bulletproof your system’s prompts.</h1>
 		<p class="text-3xl text-muted-foreground font-light">
@@ -71,7 +113,8 @@
 				bind:value={prompt}
 			></textarea>
 			<Button
-				href={`/loading?from=${promptId}`}
+				disabled={!prompt}
+				onclick={navigateOrDialog}
 				class="bg-indigo-600 text-white hover:bg-indigo-700 transition-colors duration-150 ease-in-out"
 			>
 				Generate report
@@ -115,12 +158,18 @@
 		</div>
 	</div>
 
-	<div class="py-8 flex flex-col items-center justify-center gap-4">
+	<div class="py-24 flex flex-col items-center justify-center gap-4 max-w-4xl w-full">
 		<p class="text-sm text-muted-foreground">Main hacks to protect against</p>
-		<div class="flex items-center gap-4">
+		<div class="grid grid-cols-3 gap-4 w-full">
 			{#each hacks as hack}
 				<div class="border bg-white p-4 rounded">
-					<p class="test-sm">
+					<img
+						class="h-24 object-cover object-center rounded w-full"
+						src={hack.url}
+						alt=""
+					/>
+
+					<p class="test-sm font-bold mt-4">
 						{hack.label}
 					</p>
 				</div>
