@@ -1,16 +1,52 @@
 # Hack-my-prompt
 
-# Backend
+## Front-end
 
-You need `bun` to be install, then all routes are exposed from the `index.ts`
+### Technologies
 
-To start
+We use [SvelteKit](https://svelte.dev/docs/kit/introduction) for the frontend.
+
+### Install
+
 ```sh
-cd promptfoo
+cd front
+npm install
+```
+
+### Start
+
+```sh
+npm run start
+```
+
+## Backend
+
+### Technologies
+
+You need [bun](https://bun.sh/) to be installed, then all routes are exposed from the `index.ts`
+We use as well [n8n](https://marcassin.app.n8n.cloud/workflow/o5qK3VPgQqHSUudl) to run agents
+
+### Install
+
+```sh
+cd back
+bun i
+```
+
+### Start
+
+```sh
+cd back
 bun run start
 ```
 
-## How to generate a result from Promptfoo
+### N8N
+
+![n8n config](./docs/n8n.png)
+
+## Redteaming
+
+### How to generate a result from Promptfoo
 
 Obviously, you need promptfoo install
 
