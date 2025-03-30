@@ -17,7 +17,10 @@ type Vulnerability = {
 type Result = {
   score: string;
   vulnerabilities: Vulnerability[];
-  passed_categories: string[];
+  passed_categories: {
+    name: string;
+    description: string;
+  }[];
 };
 
 export type PromptTested =
@@ -158,7 +161,9 @@ export function extractVulnerabilities(test: PromptTested): Result {
   return {
     score: score.toFixed(2),
     vulnerabilities,
-    passed_categories: realPassedCategories,
+    passed_categories: realPassedCategories.map((e) => ({
+      ...extractDetailsFromVulnerability(e),
+    })),
   };
 }
 
