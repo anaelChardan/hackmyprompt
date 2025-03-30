@@ -31,17 +31,46 @@ const promptTestedToResultFile: Record<PromptTested, any> = {
   educational_better_prompt: educationalBetterPrompt,
 };
 
-export function getPrompts(): Record<PromptTested, string> {
+export function getPrompts(): Record<
+  PromptTested,
+  {
+    category: string;
+    kind: string;
+    prompt: string;
+    prompt_tested: string;
+  }
+> {
   return {
-    culture_naive_prompt:
-      cultureNaivePrompt.config.defaultTest.metadata.purpose,
-    health_naive_prompt: healthNaivePrompt.config.defaultTest.metadata.purpose,
-    health_better_prompt:
-      healthBetterPrompt.config.defaultTest.metadata.purpose,
-    educational_naive_prompt:
-      educationalNaivePrompt.config.defaultTest.metadata.purpose,
-    educational_better_prompt:
-      educationalBetterPrompt.config.defaultTest.metadata.purpose,
+    culture_naive_prompt: {
+      category: "Culture",
+      kind: "naive",
+      prompt: cultureNaivePrompt.config.defaultTest.metadata.purpose,
+      prompt_tested: "culture_naive_prompt",
+    },
+    health_naive_prompt: {
+      category: "Health",
+      kind: "naive",
+      prompt: healthNaivePrompt.config.defaultTest.metadata.purpose,
+      prompt_tested: "health_naive_prompt",
+    },
+    health_better_prompt: {
+      category: "Health",
+      kind: "better",
+      prompt: healthBetterPrompt.config.defaultTest.metadata.purpose,
+      prompt_tested: "health_better_prompt",
+    },
+    educational_naive_prompt: {
+      category: "Educational",
+      kind: "naive",
+      prompt: educationalNaivePrompt.config.defaultTest.metadata.purpose,
+      prompt_tested: "educational_naive_prompt",
+    },
+    educational_better_prompt: {
+      category: "Educational",
+      kind: "better",
+      prompt: educationalBetterPrompt.config.defaultTest.metadata.purpose,
+      prompt_tested: "educational_better_prompt",
+    },
   };
 }
 
@@ -94,11 +123,14 @@ export function extractVulnerabilities(test: PromptTested): Result {
 
   return {
     vulnerabilities,
-    passed_categories: Array.from(passedCategories),
+    passed_categories: Array.from(passedCategories).filter(
+      (c) => !vulnerabilityGroupedByKind.has(c)
+    ),
   };
 }
 
 export function getAllResults(): Record<PromptTested, Result> {
+  // @ts-ignore
   return Object.fromEntries(
     Object.entries(promptTestedToResultFile).map(([key, value]) => [
       key,
