@@ -3,7 +3,7 @@ import {
   getAllResults,
   getPrompts,
   type PromptTested,
-} from "./results/analyzeResult";
+} from "./results/analyze-result";
 
 const port = 3555;
 
