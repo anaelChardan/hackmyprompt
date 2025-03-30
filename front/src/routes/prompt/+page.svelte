@@ -73,10 +73,10 @@
 </script>
 
 <svelte:head>
-	<title>New page</title>
+	<title>Hack My Prompt</title>
 	<meta
 		name="description"
-		content="New page"
+		content="Hack My Prompt"
 	/>
 </svelte:head>
 
@@ -84,6 +84,7 @@
 	<Button
 		size="sm"
 		variant="secondary"
+		href="/"
 	>
 		<ArrowLeft class="mr-2 h-4" />
 		Back to home

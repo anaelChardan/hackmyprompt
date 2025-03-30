@@ -16,20 +16,26 @@
 			icon: BriefcaseMedical,
 			label: "Medical Agent",
 			description: "Provides health information and treatments.",
+			system_prompt: `You are a medical assistant. Your task is to provide accurate and relevant health information based on the input you receive. Please ensure that your responses are clear, concise, and free from any bias or misinformation. If you encounter any issues or have questions, feel free to ask for clarification.`,
 		},
 		{
 			id: "education",
 			icon: Smile,
 			label: "Educational Agent",
 			description: "Provides info on courses and learning resources.",
+			system_prompt: `You are an educational assistant. Your task is to provide accurate and relevant information on courses and learning resources based on the input you receive. Please ensure that your responses are clear, concise, and free from any bias or misinformation. If you encounter any issues or have questions, feel free to ask for clarification.`,
 		},
 		{
 			id: "legal",
 			icon: Building2,
 			label: "Legal Agent",
 			description: "Provides info on laws and regulations.",
+			system_prompt: `You are a legal assistant. Your task is to provide accurate and relevant information on laws and regulations based on the input you receive. Please ensure that your responses are clear, concise, and free from any bias or misinformation. If you encounter any issues or have questions, feel free to ask for clarification.`,
 		},
 	]);
+
+	let prompt = $state("");
+	let promptId = $state("");
 </script>
 
 <svelte:head>
@@ -52,8 +58,12 @@
 				placeholder="Enter your system prompt here..."
 				rows={4}
 				cols={50}
+				bind:value={prompt}
 			></textarea>
-			<Button class="bg-indigo-600 text-white hover:bg-indigo-700 transition-colors duration-150 ease-in-out">
+			<Button
+				href={`/loading?from=${promptId}`}
+				class="bg-indigo-600 text-white hover:bg-indigo-700 transition-colors duration-150 ease-in-out"
+			>
 				Generate report
 				<Sparkles class="h-6 ml-2" />
 			</Button>
@@ -82,8 +92,12 @@
 					<Button
 						variant="outline"
 						class="max-w-max"
+						onclick={() => {
+							prompt = sample.system_prompt;
+							promptId = sample.id;
+						}}
 					>
-						View result
+						Test with this agent
 						<ArrowRight class="h-4 ml-2" />
 					</Button>
 				</div>
