@@ -18,9 +18,6 @@
 	import img4 from "$lib/components/images/hack-4.jpeg";
 	import img5 from "$lib/components/images/hack-5.jpeg";
 	import img6 from "$lib/components/images/hack-6.jpeg";
-	import img7 from "$lib/components/images/hack-7.jpeg";
-	import img8 from "$lib/components/images/hack-8.jpeg";
-	import img9 from "$lib/components/images/hack-9.jpeg";
 	import { goto } from "$app/navigation";
 
 	const samples = $state([
@@ -48,13 +45,13 @@
 	]);
 
 	const hacks = [
-		{ label: "GDPR issues", url: img0 },
-		{ label: "Agent empowerment", url: img1 },
-		{ label: "Political opinion", url: img2 },
-		{ label: "Unsupervised Contracts", url: img3 },
-		{ label: "Hallucination", url: img4 },
-		{ label: "Hijacking", url: img5 },
-		{ label: "Harmful", url: img6 },
+		{ label: "GDPR issues", url: img0, description: "Non-compliance with data protection regulations." },
+		{ label: "Agent empowerment", url: img1, description: "Excessive delegation of authority leading to uncontrolled usage." },
+		{ label: "Political opinion", url: img2, description: "Risk of partisan bias or ideological manipulation." },
+		{ label: "Unsupervised Contracts", url: img3, description: "Enters business or legal commitments without proper supervision" },
+		{ label: "Hallucination", url: img4, description: "Generation of false or misleading information presented as factual" },
+		{ label: "Hijacking", url: img5, description: "Responses containing biases or discriminatory statements" },
+		{ label: "Harmful", url: img6, description: "Production of harmful, violent, or inappropriate material" },
 	];
 
 	let prompt = $state("");
