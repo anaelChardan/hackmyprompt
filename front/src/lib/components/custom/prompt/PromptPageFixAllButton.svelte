@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from "$app/navigation";
 	import { page } from "$app/stores";
 	import Button from "$lib/components/ui/button/button.svelte";
 	import { Sparkles } from "@lucide/svelte";
@@ -17,8 +18,29 @@
 		betterPrompt = body.better_system_prompt;
 		whyBetterPrompt = body.reason_why_this_is_better;
 		loadingBetterPrompt = false;
+		// add '?better_prompt=true' to the url
+		const currentUrl = $page.url.pathname;
+		const newUrl = currentUrl + "?better_prompt=true";
+		await goto(newUrl, {
+			replaceState: false,
+		});
 	};
 </script>
+
+{#if !betterPrompt}
+	<Button
+		class="bg-purple-600 text-white max-w-max hover:bg-purple-700 transition-colors duration-200 ease-in-out"
+		onclick={getBetterPrompt}
+		disabled={loadingBetterPrompt}
+	>
+		{#if loadingBetterPrompt}
+			Loading...
+		{:else}
+			Fix them all
+			<Sparkles />
+		{/if}
+	</Button>
+{/if}
 
 {#if betterPrompt}
 	<div class="p-4 bg-sidebar rounded-md max-w-3xl border-2 border-green-500">
@@ -29,21 +51,8 @@
 {/if}
 
 {#if whyBetterPrompt}
-	<p class="text-sm font-bold">Why this is better</p>
-	<p class="text-sm text-muted-foreground text-center">
+	<p class="text-xl font-bold">Why this is better ✨</p>
+	<p class="text-lg text-center max-w-lg text-balance">
 		{whyBetterPrompt}
 	</p>
 {/if}
-
-<Button
-	class="bg-purple-600 text-white max-w-max hover:bg-purple-700 transition-colors duration-200 ease-in-out"
-	onclick={getBetterPrompt}
-	disabled={loadingBetterPrompt}
->
-	{#if loadingBetterPrompt}
-		Loading...
-	{:else}
-		Fix them all
-		<Sparkles />
-	{/if}
-</Button>

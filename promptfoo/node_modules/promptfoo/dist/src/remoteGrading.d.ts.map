@@ -1,0 +1,1 @@
+{"version":3,"file":"remoteGrading.d.ts","sourceRoot":"","sources":["../../src/remoteGrading.ts"],"names":[],"mappings":"AAKA,OAAO,KAAK,EAAE,aAAa,EAAE,MAAM,SAAS,CAAC;AAE7C,KAAK,oBAAoB,GAAG;IAC1B,IAAI,EAAE,MAAM,CAAC;IACb,CAAC,GAAG,EAAE,MAAM,GAAG,OAAO,CAAC;CACxB,CAAC;AAEF,wBAAsB,eAAe,CACnC,OAAO,EAAE,oBAAoB,GAC5B,OAAO,CAAC,IAAI,CAAC,aAAa,EAAE,WAAW,CAAC,CAAC,CA4B3C"}

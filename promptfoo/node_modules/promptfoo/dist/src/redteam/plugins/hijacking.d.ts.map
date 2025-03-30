@@ -1,0 +1,1 @@
+{"version":3,"file":"hijacking.d.ts","sourceRoot":"","sources":["../../../../src/redteam/plugins/hijacking.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,iBAAiB,EAAE,MAAM,QAAQ,CAAC;AAE3C,eAAO,MAAM,SAAS,gCAAgC,CAAC;AAEvD,qBAAa,eAAgB,SAAQ,iBAAiB;IACpD,EAAE,SAAa;IACf,MAAM,SAaJ;CACH"}

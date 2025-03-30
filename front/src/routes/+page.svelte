@@ -48,7 +48,7 @@
 
 <div class="h-full overflow-hidden flex flex-col items-center">
 	<div class="w-full max-w-4xl text-balance grid gap-4 text-center pt-16">
-		<h1 class="text-5xl">Bullet proof your system's prompts.</h1>
+		<h1 class="text-5xl">Bulletproof your system’s prompts.</h1>
 		<p class="text-3xl text-muted-foreground font-light">
 			Learn and implement strategies to protect and educate against agent hacking.
 		</p>

@@ -1,0 +1,43 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.addLeetspeak = addLeetspeak;
+function addLeetspeak(testCases, injectVar) {
+    const leetMap = {
+        a: '4',
+        e: '3',
+        i: '1',
+        o: '0',
+        s: '5',
+        t: '7',
+        l: '1',
+        A: '4',
+        E: '3',
+        I: '1',
+        O: '0',
+        S: '5',
+        T: '7',
+        L: '1',
+    };
+    const toLeetspeak = (text) => {
+        return text
+            .split('')
+            .map((char) => leetMap[char] || char)
+            .join('');
+    };
+    return testCases.map((testCase) => ({
+        ...testCase,
+        assert: testCase.assert?.map((assertion) => ({
+            ...assertion,
+            metric: `${assertion.metric}/Leetspeak`,
+        })),
+        vars: {
+            ...testCase.vars,
+            [injectVar]: toLeetspeak(String(testCase.vars[injectVar])),
+        },
+        metadata: {
+            ...testCase.metadata,
+            strategyId: 'leetspeak',
+        },
+    }));
+}
+//# sourceMappingURL=leetspeak.js.map

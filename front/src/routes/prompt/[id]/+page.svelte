@@ -10,6 +10,8 @@
 	let prompt = $derived(data.prompt.vulnerabilities[0].input_system_prompt);
 	let problems = $derived(data.prompt.vulnerabilities);
 	let passed = $derived(data.prompt.passed_categories);
+
+	let better_prompt = $derived($page.url.searchParams.get("better_prompt"));
 </script>
 
 <svelte:head>
@@ -34,7 +36,7 @@
 	</Button>
 	<PromptPageHeader {prompt} />
 	<PromptPageProblemsList
-		{problems}
-		{passed}
+		problems={better_prompt ? [] : problems}
+		passed={!better_prompt ? passed : [...problems, ...passed]}
 	/>
 </div>
