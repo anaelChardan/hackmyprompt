@@ -11,8 +11,5 @@
   },
   "peerDependencies": {
     "typescript": "^5"
-  },
-  "dependencies": {
-    "promptfoo": "^0.107.6"
   }
 }

@@ -4,6 +4,12 @@
 
 You need `bun` to be install, then all routes are exposed from the `index.ts`
 
+To start
+```sh
+cd promptfoo
+bun run start
+```
+
 ## How to generate a result from Promptfoo
 
 Obviously, you need promptfoo install
