@@ -165,12 +165,8 @@ export function extractVulnerabilities(test: PromptTested): Result {
     (c) => !vulnerabilityGroupedByKind.has(c)
   );
 
-  const score =
-    (realPassedCategories.length /
-      (vulnerabilities.length + realPassedCategories.length)) *
-    100;
   return {
-    score: score.toFixed(2),
+    score: realPassedCategories.length.toString(),
     vulnerabilities,
     passed_categories: realPassedCategories.map((e) => ({
       ...extractDetailsFromVulnerability(e),
