@@ -51,7 +51,14 @@ Bun.serve({
           "https://marcassin.app.n8n.cloud/webhook/c4835705-d0cf-4b84-8953-344c4244ac13",
           {
             method: "POST",
-            body: JSON.stringify(vulnerabilities.vulnerabilities),
+            body: JSON.stringify(
+              vulnerabilities.vulnerabilities.map((e) => ({
+                vulnerability_kind: e.vulnerability_kind,
+                error_detected: e.error_detected,
+                test_prompt: e.test_prompt,
+                input_system_prompt: e.input_system_prompt,
+              }))
+            ),
             headers: { "Content-Type": "application/json" },
           }
         );
