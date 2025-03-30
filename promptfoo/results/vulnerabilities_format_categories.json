@@ -59,24 +59,56 @@
     "type": "Privacy Vulnerabilities",
     "name": "GDPR issues",
     "id": "pii",
-    "label": "Direct exposure of PII"
+    "label": "Direct exposure of PII",
+    "description": "The PII plugin evaluates whether a language model can directly expose Personally Identifiable Information (PII) in its responses. It simulates scenarios where the AI might inadvertently reveal sensitive user data, such as names, addresses, phone numbers, or email addresses.",
+    "why": "It's critical because PII exposure can lead to privacy violations, identity theft, or harm in various contexts. A model that exposes PII without proper context or awareness can lead to privacy violations, identity theft, or harm in various contexts.",
+    "better": "To improve, implement content moderation systems, enforce strict policy adherence, and monitor for inappropriate statements. Use purpose-specific guardrails or classifiers to detect and flag political statements in real time.",
+    "links": [
+      "https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#pii",
+      "https://arxiv.org/abs/2306.11694",
+      "https://huggingface.co/papers/2311.02260"
+    ]
   },
   {
     "type": "Misinformation and Misuse",
     "name": "Agent empowerment",
     "id": "excessive-agency",
-    "label": "Model taking excessive initiative or misunderstanding its capabilities"
+    "label": "Model taking excessive initiative or misunderstanding its capabilities",
+    "description": "The Excessive Agency plugin evaluates whether a language model takes excessive initiative or misunderstands its capabilities. It simulates scenarios where the AI might take inappropriate or unethical actions, especially in sensitive or controversial areas.",
+    "why": "It's critical because excessive agency can lead to misinformation, polarization, or harm in various contexts. A model that takes excessive initiative or misunderstands its capabilities can spread misinformation, incite conflict, or violate platform policies.",
+    "better": "To improve, implement content moderation systems, enforce strict policy adherence, and monitor for inappropriate statements. Use purpose-specific guardrails or classifiers to detect and flag political statements in real time.",
+    "links": [
+      "https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#excessive-agency",
+      "https://arxiv.org/abs/2306.11694",
+      "https://huggingface.co/papers/2311.02260"
+    ]
   },
   {
     "type": "Misinformation and Misuse",
     "name": "Political opinion",
     "id": "politics",
-    "label": "Makes political statements"
+    "label": "Makes political statements",
+    "description": "The Politics plugin evaluates whether a language model can make political statements or express opinions on political topics. It simulates scenarios where the AI might make inappropriate or unethical statements, especially in sensitive or controversial areas.",
+    "why": "It's critical because political statements can lead to misinformation, polarization, or harm in various contexts. A model that expresses political opinions without proper context or awareness can spread misinformation, incite conflict, or violate platform policies.",
+    "better": "To improve, implement content moderation systems, enforce strict policy adherence, and monitor for inappropriate statements. Use purpose-specific guardrails or classifiers to detect and flag political statements in real time.",
+    "links": [
+      "https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#politics",
+      "https://arxiv.org/abs/2306.11694",
+      "https://huggingface.co/papers/2311.02260"
+    ]
   },
   {
     "type": "Misinformation and Misuse",
     "name": "Unsupervised Contracts",
     "id": "contracts",
-    "label": "Enters business or legal commitments without supervision"
+    "label": "Enters business or legal commitments without supervision",
+    "description": "The Contracts plugin evaluates whether a language model can enter into business or legal commitments without proper supervision. It simulates scenarios where the AI might make commitments without proper context or awareness.",
+    "why": "It's critical because unsupervised commitments can lead to legal liabilities, financial losses, or harm in various contexts. A model that makes commitments without proper context or awareness can lead to legal liabilities, financial losses, or harm in various contexts.",
+    "better": "To improve, implement content moderation systems, enforce strict policy adherence, and monitor for inappropriate statements. Use purpose-specific guardrails or classifiers to detect and flag political statements in real time.",
+    "links": [
+      "https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#contracts",
+      "https://arxiv.org/abs/2306.11694",
+      "https://huggingface.co/papers/2311.02260"
+    ]
   }
 ]

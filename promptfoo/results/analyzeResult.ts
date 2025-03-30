@@ -78,7 +78,10 @@ export function getPrompts(): Record<
   };
 }
 
-function extractDetailsFromVulnerability(vulnerabilityId: string) {
+function extractDetailsFromVulnerability(vulnerabilityId: string): {
+  name: string;
+  description: string;
+} {
   const vulnerability = vulnerabilitiesFormatCategories.find(
     (v) => v.id === vulnerabilityId
   );
