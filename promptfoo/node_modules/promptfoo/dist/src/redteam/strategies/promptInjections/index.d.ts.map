@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../../../src/redteam/strategies/promptInjections/index.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,QAAQ,EAAE,MAAM,gBAAgB,CAAC;AAE/C,wBAAsB,aAAa,CACjC,SAAS,EAAE,QAAQ,EAAE,EACrB,SAAS,EAAE,MAAM,EACjB,MAAM,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC,GAC1B,OAAO,CAAC,QAAQ,EAAE,CAAC,CAmCrB"}

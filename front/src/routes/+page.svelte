@@ -1,58 +1,41 @@
 <script lang="ts">
-	import { goto } from "$app/navigation";
-	import { page } from "$app/state";
-	import EducationRessources from "$lib/components/custom/EducationRessources.svelte";
-	import ReportStats from "$lib/components/custom/ReportStats.svelte";
-	import UserInput from "$lib/components/custom/UserInput.svelte";
+	import Button from "$lib/components/ui/button/button.svelte";
+	import {
+		ArrowRight,
+		BadgeEuroIcon,
+		BriefcaseMedical,
+		Building2,
+		PlaneTakeoff,
+		Smile,
+		Sparkles,
+	} from "@lucide/svelte";
 
-	const getInputValue = (value: string) => {
-		console.log("Input value:", value);
-		inputValue = value;
-	};
+	const samples = $state([
+		{
+			id: "health_better_prompt",
+			icon: BriefcaseMedical,
+			label: "Medical Agent",
+			description: "Provides health information and treatments.",
+			system_prompt: `You are a medical assistant. Your task is to provide accurate and relevant health information based on the input you receive. Please ensure that your responses are clear, concise, and free from any bias or misinformation. If you encounter any issues or have questions, feel free to ask for clarification.`,
+		},
+		{
+			id: "educational_better_prompt",
+			icon: Smile,
+			label: "Educational Agent",
+			description: "Provides info on courses and learning resources.",
+			system_prompt: `You are an educational assistant. Your task is to provide accurate and relevant information on courses and learning resources based on the input you receive. Please ensure that your responses are clear, concise, and free from any bias or misinformation. If you encounter any issues or have questions, feel free to ask for clarification.`,
+		},
+		{
+			id: "culture_better_prompt",
+			icon: Sparkles,
+			label: "Cultural Agent",
+			description: "Provides cultural perspectives on sensitive issues.",
+			system_prompt: `You are an AI who shares cultural perspectives from around the world. When discussing controversial or sensitive issues, present the viewpoint of each culture involved. Avoid neutrality — instead, take a firm stance based on cultural values and history to help users understand the underlying reasons for each side.`,
+		},
+	]);
 
-	let inputValue = $state("");
-
-	const generateRandomScoreFromZeroToHundred = () => {
-		return Math.floor(Math.random() * 101);
-	};
-
-	const subjects = [
-		{
-			id: "hijacking",
-			label: "Hijacking",
-			description:
-				"Hijacking est un type d’attaque où l’attaquant prend le contrôle d’un agent AI en manipulant ses entrées ou en exploitant des vulnérabilités dans son code.",
-			score: generateRandomScoreFromZeroToHundred(),
-		},
-		{
-			id: "prompt_injection",
-			label: "Prompt Injection",
-			description:
-				"Prompt Injection est une technique où l’attaquant insère des instructions malveillantes dans le prompt d’un agent AI pour manipuler son comportement.",
-			score: generateRandomScoreFromZeroToHundred(),
-		},
-		{
-			id: "data_leakage",
-			label: "Data Leakage",
-			description:
-				"Data Leakage est un risque où des informations sensibles sont divulguées à travers les réponses d’un agent AI, souvent en raison de la mauvaise gestion des données d’entraînement.",
-			score: generateRandomScoreFromZeroToHundred(),
-		},
-		{
-			id: "adversarial_attacks",
-			label: "Adversarial Attacks",
-			description:
-				"Adversarial Attacks sont des attaques où l’attaquant modifie les entrées d’un agent AI pour tromper son modèle et obtenir des résultats incorrects.",
-			score: generateRandomScoreFromZeroToHundred(),
-		},
-		{
-			id: "model_extraction",
-			label: "Model Extraction",
-			description:
-				"Model Extraction est une attaque où l’attaquant tente de reproduire le modèle d’un agent AI en interrogeant le système avec des entrées soigneusement conçues.",
-			score: generateRandomScoreFromZeroToHundred(),
-		},
-	];
+	let prompt = $state("");
+	let promptId = $state("");
 </script>
 
 <svelte:head>
@@ -63,10 +46,62 @@
 	/>
 </svelte:head>
 
-<div class="h-full overflow-hidden flex flex-col">
-	<UserInput {getInputValue} />
-	<div class="border divide-x flex-1 h-full flex overflow-hidden">
-		<ReportStats {subjects} />
-		<EducationRessources {subjects} />
+<div class="h-full overflow-hidden flex flex-col items-center">
+	<div class="w-full max-w-4xl text-balance grid gap-4 text-center pt-16">
+		<h1 class="text-5xl">Bulletproof your system’s prompts.</h1>
+		<p class="text-3xl text-muted-foreground font-light">
+			Learn and implement strategies to protect and educate against agent hacking.
+		</p>
+		<div class="mt-8 grid gap-4">
+			<textarea
+				class="w-full font-mono border bg-sidebar rounded p-4"
+				placeholder="Enter your system prompt here..."
+				rows={4}
+				cols={50}
+				bind:value={prompt}
+			></textarea>
+			<Button
+				href={`/loading?from=${promptId}`}
+				class="bg-indigo-600 text-white hover:bg-indigo-700 transition-colors duration-150 ease-in-out"
+			>
+				Generate report
+				<Sparkles class="h-6 ml-2" />
+			</Button>
+		</div>
+	</div>
+
+	<div class="flex flex-col gap-2 justify-center mt-12">
+		<p class="text-muted-foreground text-center text-sm">some examples</p>
+		<div class="grid grid-cols-3 gap-4 max-w-4xl">
+			{#each samples as sample}
+				{@const Icon = sample.icon}
+				<div class="border rounded bg-sidebar p-6 justify-between flex flex-col gap-4">
+					<div>
+						<div class="flex items-start gap-4">
+							<Icon class="h-5 w-5 shrink-0 mt-0.5" />
+							<div>
+								<p class="font-semibold">
+									{sample.label}
+								</p>
+							</div>
+						</div>
+						<p class="text-sm text-muted-foreground my-2 text-balance">
+							{sample.description}
+						</p>
+					</div>
+					<Button
+						variant="outline"
+						class="max-w-max"
+						onclick={() => {
+							prompt = sample.system_prompt;
+							promptId = sample.id;
+						}}
+					>
+						Test with this agent
+						<ArrowRight class="h-4 ml-2" />
+					</Button>
+				</div>
+			{/each}
+		</div>
 	</div>
 </div>

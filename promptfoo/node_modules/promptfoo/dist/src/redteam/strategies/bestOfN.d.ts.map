@@ -1,0 +1,1 @@
+{"version":3,"file":"bestOfN.d.ts","sourceRoot":"","sources":["../../../../src/redteam/strategies/bestOfN.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAE,QAAQ,EAAE,kBAAkB,EAAE,MAAM,aAAa,CAAC;AAEhE,wBAAsB,mBAAmB,CACvC,SAAS,EAAE,kBAAkB,EAAE,EAC/B,SAAS,EAAE,MAAM,EACjB,MAAM,EAAE,MAAM,CAAC,MAAM,EAAE,OAAO,CAAC,GAC9B,OAAO,CAAC,QAAQ,EAAE,CAAC,CA8BrB"}

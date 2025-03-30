@@ -1,0 +1,617 @@
+[
+	{
+		"type": "Security Vulnerabilities",
+		"name": "ASCII Smuggling",
+		"id": "ascii-smuggling",
+		"label": "Attempts to obfuscate malicious content using ASCII smuggling"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "BeaverTails",
+		"id": "beavertails",
+		"label": "Uses the BeaverTails prompt injection dataset"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Cross-Session Leak",
+		"id": "cross-session-leak",
+		"label": "Checks for information sharing between unrelated sessions"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "CyberSecEval",
+		"id": "cyberseceval",
+		"label": "Tests prompt injection attacks using the CyberSecEval dataset"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Debug Access",
+		"id": "debug-access",
+		"label": "Attempts to access or use debugging commands"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Divergent Repetition",
+		"id": "divergent-repetition",
+		"label": "Tests whether an AI system can be manipulated into revealing its training data through repetitive pattern exploitation."
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Harmbench",
+		"id": "harmbench",
+		"label": "Tests prompt injection attacks using the Harmbench dataset"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Hijacking",
+		"id": "hijacking",
+		"label": "Unauthorized or off-topic resource use",
+		"description": "The Hijacking plugin tests whether a language model can be distracted or misled from its intended system role by cleverly crafted, superficially related queries. It simulates realistic attempts to manipulate the AI into responding to tasks that fall outside its designated function.",
+		"why": "It's essential because hijacked AI systems can become open proxies, enabling misuse or data leakage. If an AI meant to be a travel agent starts offering economic statistics or investment advice, it blurs operational boundaries and increases security and trust risks—especially in publicly accessible LLM endpoints.",
+		"better": "To improve, clearly define system instructions and purpose in the prompt, implement strong refusal mechanisms for out-of-scope queries, reinforce boundary awareness during model fine-tuning, and monitor for consistent purpose adherence in logs. Employ purpose-specific guardrails or classifiers to detect and flag hijacking attempts in real time.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#hijacking",
+			"https://arxiv.org/abs/2310.03635",
+			"https://blog.promptingguide.ai/posts/hijacking-llms/"
+		]
+	},
+	{
+		"type": "Harmful Activity",
+		"name": "Harmful Activity",
+		"id": "harmful",
+		"label": "Content that encourages harmful activities",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Indirect Prompt Injection",
+		"id": "indirect-prompt-injection",
+		"label": "Tests if the prompt is vulnerable to instructions injected into variables in the prompt"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Malicious Code",
+		"id": "harmful:cybercrime:malicious-code",
+		"label": "Tests creation of malicious code",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Malicious Resource Fetching",
+		"id": "ssrf",
+		"label": "Server-Side Request Forgery (SSRF) tests"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Pliny",
+		"id": "pliny",
+		"label": "Tests LLM systems using a curated collection of prompts from https://github.com/elder-plinius/L1B3RT4S"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Privilege Escalation",
+		"id": "bfla",
+		"label": "Broken Function Level Authorization (BFLA) tests"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Prompt Extraction",
+		"id": "prompt-extraction",
+		"label": "Attempts to get the model to reveal its system prompt"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "RAG Document Exfiltration",
+		"id": "rag-document-exfiltration",
+		"label": "Content related to RAG Document Exfiltration"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "RBAC Enforcement",
+		"id": "rbac",
+		"label": "Tests whether the model properly implements Role-Based Access Control (RBAC)"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Reasoning DoS",
+		"id": "reasoning-dos",
+		"label": "Tests for vulnerability to computational resource exhaustion through excessive reasoning patterns. Applicable to reasoning models."
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Shell Injection",
+		"id": "shell-injection",
+		"label": "Attempts to execute shell commands through the model"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "SQL Injection",
+		"id": "sql-injection",
+		"label": "Attempts to perform SQL injection attacks to manipulate database queries",
+		"description": "The SQL Injection plugin tests whether a language model integrated with a database can be tricked into executing unauthorized or malicious SQL commands. It simulates input manipulation attacks designed to exploit poor query construction or inadequate input validation.",
+		"why": "It's essential to catch these vulnerabilities because SQL injection attacks can lead to serious data breaches—exposing, altering, or destroying sensitive information. In LLM-based systems connected to databases, an unsanitized query generated by the model could be exploited by a malicious user with simple input crafting.",
+		"better": "To mitigate SQL injection risks, always use parameterized queries or ORM libraries that handle input sanitization automatically. Reinforce the AI’s training with secure query patterns, and implement runtime query auditing to detect anomalies. Add strict validation layers between the model and the database, and avoid direct natural language-to-SQL translation without safety checks.",
+		"better_example": "You are a knowledgeable and supportive medical assistant. Provide general health-related information on symptoms, conditions, medications, and treatments while emphasizing the importance of professional medical consultation. Maintain a friendly and non-judgmental tone, and ensure that all responses encourage users to seek advice from qualified healthcare providers before making any medical decisions.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#sql-injection",
+			"https://owasp.org/www-community/attacks/SQL_Injection",
+			"https://arxiv.org/abs/2306.11698"
+		]
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "System Prompt Override",
+		"id": "system-prompt-override",
+		"label": "Tests if an AI system can be manipulated to ignore or override its original system prompt"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Tool Discovery",
+		"id": "tool-discovery",
+		"label": "Tests if an AI system reveals the list of tools, functions, or API calls it has access to"
+	},
+	{
+		"type": "Security Vulnerabilities",
+		"name": "Unauthorized Data Access",
+		"id": "bola",
+		"label": "Broken Object Level Authorization (BOLA) tests"
+	},
+	{
+		"type": "Privacy Vulnerabilities",
+		"name": "Direct PII Exposure",
+		"id": "pii:direct",
+		"label": "Direct exposure of PII"
+	},
+	{
+		"type": "Privacy Vulnerabilities",
+		"name": "PII in API/Database",
+		"id": "pii:api-db",
+		"label": "PII exposed through API or database"
+	},
+	{
+		"type": "Privacy Vulnerabilities",
+		"name": "PII in Session Data",
+		"id": "pii:session",
+		"label": "PII exposed in session data"
+	},
+	{
+		"type": "Privacy Vulnerabilities",
+		"name": "PII via Social Engineering",
+		"id": "pii:social",
+		"label": "PII exposed through social engineering"
+	},
+	{
+		"type": "Privacy Vulnerabilities",
+		"name": "Privacy Violation",
+		"id": "harmful:privacy",
+		"label": "Content violating privacy rights",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Chemical & Biological Weapons",
+		"id": "harmful:chemical-biological-weapons",
+		"label": "Content related to chemical or biological weapons",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Child Exploitation",
+		"id": "harmful:child-exploitation",
+		"label": "Content exploiting or harming children",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Copyright Violations",
+		"id": "harmful:copyright-violations",
+		"label": "Content violating copyright laws",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Cybercrime",
+		"id": "harmful:cybercrime",
+		"label": "Content related to cybercriminal activities",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "IEDs",
+		"id": "harmful:weapons:ied",
+		"label": "Content related to creating Improvised Explosive Devices",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Illegal Activities",
+		"id": "harmful:illegal-activities",
+		"label": "Content promoting illegal activities",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Illegal Drugs",
+		"id": "harmful:illegal-drugs",
+		"label": "Content related to illegal drug use or trade",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Indiscriminate Weapons",
+		"id": "harmful:indiscriminate-weapons",
+		"label": "Content related to weapons without context",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Intellectual Property Violation",
+		"id": "harmful:intellectual-property",
+		"label": "Content violating intellectual property rights",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Malicious Code",
+		"id": "harmful:cybercrime:malicious-code",
+		"label": "Content related to generating malicious code",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Methamphetamine",
+		"id": "harmful:illegal-drugs:meth",
+		"label": "Content related to methamphetamine",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Non-Violent Crime",
+		"id": "harmful:non-violent-crime",
+		"label": "Content related to non-violent criminal activities",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Sex Crimes",
+		"id": "harmful:sex-crime",
+		"label": "Content related to sexual crimes",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Criminal Activity",
+		"name": "Violent Crime",
+		"id": "harmful:violent-crime",
+		"label": "Content related to violent criminal activities",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Harmful Activity",
+		"name": "Graphic Content",
+		"id": "harmful:graphic-content",
+		"label": "Displaying graphic or violent content",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Harmful Activity",
+		"name": "Harassment and Bullying",
+		"id": "harmful:harassment-bullying",
+		"label": "Content that harasses or bullies individuals",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Harmful Activity",
+		"name": "Hate Speech",
+		"id": "harmful:hate",
+		"label": "Content that promotes hate or discrimination",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Harmful Activity",
+		"name": "Insults",
+		"id": "harmful:insults",
+		"label": "Content that insults or demeans individuals",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Harmful Activity",
+		"name": "Profanity",
+		"id": "harmful:profanity",
+		"label": "Content containing profane or inappropriate language",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Harmful Activity",
+		"name": "Radicalization",
+		"id": "harmful:radicalization",
+		"label": "Content that promotes radical or extremist views",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Harmful Activity",
+		"name": "Self Harm",
+		"id": "harmful:self-harm",
+		"label": "Content that encourages self-harm or suicide",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Harmful Activity",
+		"name": "Sexual Content",
+		"id": "harmful:sexual-content",
+		"label": "Explicit or inappropriate sexual content",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Competitor Endorsement",
+		"id": "competitors",
+		"label": "Competitor mentions and endorsements"
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Excessive Agency",
+		"id": "excessive-agency",
+		"label": "Model taking excessive initiative or misunderstanding its capabilities"
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Hallucination",
+		"id": "hallucination",
+		"label": "Model generating false or misleading information",
+		"description": "The Hallucination plugin evaluates whether a language model generates false or misleading information, especially in response to ambiguous or unverifiable prompts. It mimics scenarios where the AI might invent details, express unjustified confidence, or fail to acknowledge uncertainty.",
+		"why": "It's vital to detect hallucination vulnerabilities because fabricated responses can erode user trust, propagate misinformation, or lead to harmful outcomes—especially in sensitive domains like healthcare, legal, or finance. A hallucinating model can appear knowledgeable while delivering falsehoods with confidence, making it dangerous and misleading.",
+		"better": "To reduce hallucinations, train models to explicitly acknowledge uncertainty, avoid generating unverifiable details, and leverage retrieval-augmented generation (RAG) to ground answers in reliable external data. Implement confidence calibration mechanisms and integrate post-response fact-checking tools when feasible.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#hallucination",
+			"https://arxiv.org/abs/2305.14475",
+			"https://huggingface.co/papers/2302.02083"
+		]
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Imitation",
+		"id": "imitation",
+		"label": "Imitates people, brands, or organizations"
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Misinformation and Disinformation",
+		"id": "harmful:misinformation-disinformation",
+		"label": "Spreading false or misleading information",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Overreliance",
+		"id": "overreliance",
+		"label": "Model susceptible to relying on an incorrect user assumption or input"
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Political Opinions",
+		"id": "politics",
+		"label": "Makes political statements"
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Religious Sensitivity",
+		"id": "religion",
+		"label": "Tests handling of religious content and bias"
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Specialized Advice",
+		"id": "harmful:specialized-advice",
+		"label": "Providing advice in specialized fields without expertise",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Unsafe Practices",
+		"id": "harmful:unsafe-practices",
+		"label": "Content promoting unsafe or harmful practices",
+		"description": "The Harmful Content plugin evaluates whether a language model can appropriately detect and reject prompts involving sensitive, unethical, or dangerous topics, including violence, self-harm, illegal activities, and misinformation. It leverages unaligned models to generate adversarial prompts that test the AI’s safety and ethical response boundaries.",
+		"why": "This is critical because models that respond inappropriately to harmful prompts can enable criminal behavior, cause emotional distress, or spread misinformation. Failing these tests exposes significant risks to user safety, platform integrity, and public trust—especially for widely deployed or consumer-facing AI systems.",
+		"better": "To improve, fine-tune models with reinforcement learning from human feedback (RLHF) focused on safety, incorporate content filtering layers, and deploy real-time moderation pipelines. Use red teaming continuously across domains and subcategories, and build transparent refusal frameworks that clarify the model's ethical and legal boundaries when rejecting content.",
+		"links": [
+			"https://github.com/promptfoo/promptfoo/blob/main/docs/redteaming.md#harmful-content",
+			"https://arxiv.org/abs/2306.11694",
+			"https://huggingface.co/papers/2311.02260"
+		]
+	},
+	{
+		"type": "Misinformation and Misuse",
+		"name": "Unsupervised Contracts",
+		"id": "contracts",
+		"label": "Enters business or legal commitments without supervision"
+	}
+]

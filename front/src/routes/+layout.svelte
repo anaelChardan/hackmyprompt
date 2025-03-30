@@ -9,8 +9,14 @@
 
 <div class="h-screen flex flex-col">
 	<!-- TOP NAV -->
-	<div class="sticky top-0 border-b p-4">
-		<p class="font-bold">Hack_My_Prompt</p>
+	<div class="sticky top-0 border-b p-4 flex items-center justify-between gap-3 bg-white">
+		<a href="/">
+			<p class="font-bold">Hack My Prompt</p>
+		</a>
+		<p class="text-xs text-muted-foreground">
+			*All informations are possibly inaccurate. Please do not use them in a real-world context and do your own
+			research.
+		</p>
 	</div>
 	<!-- CONTENT -->
 	{@render children()}

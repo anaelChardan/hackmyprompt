@@ -7,30 +7,41 @@
 	let inputValue = $state("");
 
 	const placeholders = [
-		"Déposez votre invite système ci-dessous… et laissez l'équipe rouge faire le reste.",
-		"Hack My Prompt est une application éducative pour améliorer vos compétences en ingénierie d'invite.",
-		"Découvrez les vecteurs d'attaque des agents IA et comment vous en défendre.",
-		"Explorez le monde de l'IA et de l'ingénierie d'invite avec Hack My Prompt.",
+		"Déposez votre system prompt ci-dessous… et laissez l'équipe rouge en faire son terrain de jeu.",
+		"Hack My Prompt est une application éducative pour muscler vos compétences en prompt engineering.",
+		"Découvrez comment un system prompt peut devenir une faille — et comment l'éviter.",
+		"Explorez les attaques, défendez vos system prompts, et dominez l'art du prompt engineering avec Hack My Prompt.",
 	];
 
 	let currentIndex = 0;
+	let showCursor = true;
 
 	const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-	const typeWriterEffect = async (text: string) => {
-		placeholder = "";
-		for (let i = 0; i < text.length; i++) {
-			placeholder += text[i];
-			await sleep(50); // vitesse de frappe
+	const blink = async () => {
+		while (true) {
+			showCursor = !showCursor;
+			await sleep(500);
 		}
-		await sleep(2000); // pause après l’écriture
+	};
+
+	const typeWriterEffect = async (text: string) => {
+		let typed = "";
+		for (let i = 0; i < text.length; i++) {
+			typed += text[i];
+			placeholder = typed + (showCursor ? " |" : "");
+			await sleep(50);
+		}
+		await sleep(2000);
 		for (let i = text.length; i >= 0; i--) {
-			placeholder = text.slice(0, i);
-			await sleep(25); // vitesse d’effacement
+			typed = text.slice(0, i);
+			placeholder = typed + (showCursor ? " |" : "");
+			await sleep(25);
 		}
 	};
 
 	const animateInputPlaceholder = async () => {
+		blink(); // Lancer le clignotement en parallèle
 		while (true) {
 			await typeWriterEffect(placeholders[currentIndex]);
 			currentIndex = (currentIndex + 1) % placeholders.length;

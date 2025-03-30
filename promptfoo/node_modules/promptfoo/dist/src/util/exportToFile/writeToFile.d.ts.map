@@ -1,0 +1,1 @@
+{"version":3,"file":"writeToFile.d.ts","sourceRoot":"","sources":["../../../../src/util/exportToFile/writeToFile.ts"],"names":[],"mappings":"AAEA,qBAAa,eAAe;IAGd,OAAO,CAAC,QAAQ;IAF5B,OAAO,CAAC,WAAW,CAAc;gBAEb,QAAQ,EAAE,MAAM;IAI9B,KAAK,CAAC,IAAI,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC,GAAG,OAAO,CAAC,IAAI,CAAC;IAc/C,KAAK,IAAI,OAAO,CAAC,IAAI,CAAC;CAK7B"}

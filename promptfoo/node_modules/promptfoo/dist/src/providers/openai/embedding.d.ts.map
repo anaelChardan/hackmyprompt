@@ -1,0 +1,1 @@
+{"version":3,"file":"embedding.d.ts","sourceRoot":"","sources":["../../../../src/providers/openai/embedding.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,qBAAqB,EAAE,MAAM,GAAG,CAAC;AAG1C,OAAO,KAAK,EAAE,yBAAyB,EAAE,MAAM,aAAa,CAAC;AAI7D,qBAAa,uBAAwB,SAAQ,qBAAqB;IAC1D,gBAAgB,CAAC,IAAI,EAAE,MAAM,GAAG,OAAO,CAAC,yBAAyB,CAAC;CA8CzE"}
