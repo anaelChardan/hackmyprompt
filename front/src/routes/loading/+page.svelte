@@ -42,7 +42,7 @@
 
 <div class="grid gap-8">
 	<div class="w-full flex items-center justify-center min-h-[300px]">
-		<h1>We're hacking your system prompt...</h1>
+		<h1>We're hacking your system prompt with 325 tests...</h1>
 	</div>
 
 	{#key key}
