@@ -5,7 +5,7 @@
 	import { page } from "$app/stores";
 	import { goto } from "$app/navigation";
 
-	const loadingItems = ["Checking hijackability", "Checking for prompt injection", "Checking for hallucination"];
+	const loadingItems = ["Checking hijackability", "Checking for prompt injection", "Checking for hallucination", "Checking for bias", "Checking for ethical issues"];
 
 	let index = 0;
 	let currentItem = loadingItems[index];

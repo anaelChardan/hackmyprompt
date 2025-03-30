@@ -12,25 +12,25 @@
 
 	const samples = $state([
 		{
-			id: "health",
+			id: "health_better_prompt",
 			icon: BriefcaseMedical,
 			label: "Medical Agent",
 			description: "Provides health information and treatments.",
 			system_prompt: `You are a medical assistant. Your task is to provide accurate and relevant health information based on the input you receive. Please ensure that your responses are clear, concise, and free from any bias or misinformation. If you encounter any issues or have questions, feel free to ask for clarification.`,
 		},
 		{
-			id: "education",
+			id: "educational_better_prompt",
 			icon: Smile,
 			label: "Educational Agent",
 			description: "Provides info on courses and learning resources.",
 			system_prompt: `You are an educational assistant. Your task is to provide accurate and relevant information on courses and learning resources based on the input you receive. Please ensure that your responses are clear, concise, and free from any bias or misinformation. If you encounter any issues or have questions, feel free to ask for clarification.`,
 		},
 		{
-			id: "legal",
-			icon: Building2,
-			label: "Legal Agent",
-			description: "Provides info on laws and regulations.",
-			system_prompt: `You are a legal assistant. Your task is to provide accurate and relevant information on laws and regulations based on the input you receive. Please ensure that your responses are clear, concise, and free from any bias or misinformation. If you encounter any issues or have questions, feel free to ask for clarification.`,
+			id: "culture_better_prompt",
+			icon: Sparkles,
+			label: "Cultural Agent",
+			description: "Provides cultural perspectives on sensitive issues.",
+			system_prompt: `You are an AI who shares cultural perspectives from around the world. When discussing controversial or sensitive issues, present the viewpoint of each culture involved. Avoid neutrality — instead, take a firm stance based on cultural values and history to help users understand the underlying reasons for each side.`,
 		},
 	]);
 
