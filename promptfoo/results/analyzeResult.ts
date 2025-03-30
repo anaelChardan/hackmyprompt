@@ -3,16 +3,19 @@ import healthNaivePrompt from "./health_open_ai_naive_prompt/results.json";
 import cultureNaivePrompt from "./culture_open_ai_naive_prompt/results.json";
 import educationalNaivePrompt from "./educational_open_ai_naive_prompt/results.json";
 import educationalBetterPrompt from "./educational_open_ai_better_prompt/results.json";
+import vulnerabilitiesFormatCategories from "./vulnerabilities_format_categories.json";
 
 type Vulnerability = {
   vulnerability_kind: string;
   error_detected: string;
   test_prompt: string;
   input_system_prompt: string;
+  name: string;
+  description: string;
 };
 
 type Result = {
-  score: number;
+  score: string;
   vulnerabilities: Vulnerability[];
   passed_categories: string[];
 };
@@ -75,6 +78,17 @@ export function getPrompts(): Record<
   };
 }
 
+function extractDetailsFromVulnerability(vulnerabilityId: string) {
+  const vulnerability = vulnerabilitiesFormatCategories.find(
+    (v) => v.id === vulnerabilityId
+  );
+
+  return {
+    name: vulnerability?.name,
+    description: vulnerability?.description,
+  };
+}
+
 export function extractVulnerabilities(test: PromptTested): Result {
   const resultFile = promptTestedToResultFile[test];
 
@@ -86,8 +100,11 @@ export function extractVulnerabilities(test: PromptTested): Result {
   if (!results || !Array.isArray(results)) {
     console.error("Invalid results structure: results.results is not an array");
     return {
+      score: "0",
       vulnerabilities: [],
       passed_categories: [],
+      name: "",
+      description: "",
     };
   }
 
@@ -114,6 +131,7 @@ export function extractVulnerabilities(test: PromptTested): Result {
         error_detected: error,
         test_prompt: testPrompt,
         input_system_prompt: givenSystemPrompt,
+        ...extractDetailsFromVulnerability(kind),
       });
     } else {
       passedCategories.add(kind);
