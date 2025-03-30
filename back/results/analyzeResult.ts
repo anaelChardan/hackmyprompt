@@ -13,6 +13,7 @@ type Vulnerability = {
   input_system_prompt: string;
   name: string;
   description: string;
+  test_result: string;
 };
 
 type Result = {
@@ -150,6 +151,7 @@ export function extractVulnerabilities(test: PromptTested): Result {
         vulnerability_kind: kind,
         error_detected: error,
         test_prompt: testPrompt,
+        test_result: result.response.output,
         input_system_prompt: givenSystemPrompt,
         ...extractDetailsFromVulnerability(kind),
       });

@@ -1,5 +1,7 @@
 # Hack-my-prompt
 
+Hack my prompt is your new redteaming companion, teaching you to better prompt to harness your business against attacker.
+
 ## Front-end
 
 ### Technologies
