@@ -7,6 +7,19 @@ import {
 
 const port = 3555;
 
+export function toResponse(body: any) {
+  const res = Response.json(body);
+
+  res.headers.set("Access-Control-Allow-Origin", "*");
+  res.headers.set(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS"
+  );
+  res.headers.set("Access-Control-Allow-Headers", "*");
+
+  return res;
+}
+
 Bun.serve({
   port,
   routes: {
@@ -22,13 +35,14 @@ Bun.serve({
     "/prompts": {
       GET: async (req) => {
         const prompts = getPrompts();
-        return Response.json(prompts);
+
+        return toResponse(prompts);
       },
     },
     "/all-results": {
       GET: async (req) => {
         const results = getAllResults();
-        return Response.json(results);
+        return toResponse(results);
       },
     },
     "/analyze-result/:promptTested": {
@@ -36,7 +50,7 @@ Bun.serve({
         const promptTested = req.params.promptTested;
         // osef on fait du sale
         const results = extractVulnerabilities(promptTested as PromptTested);
-        return Response.json(results);
+        return toResponse(results);
       },
     },
     "/agents/:promptTested": {
@@ -65,7 +79,7 @@ Bun.serve({
 
         const result = await response.json();
 
-        return Response.json(result);
+        return toResponse(result);
       },
     },
   },
