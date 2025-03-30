@@ -34,11 +34,12 @@
 				<Accordion.Item value="item-1">
 					<Accordion.Trigger class="w-full py-6">
 						<div class="flex items-center gap-4 px-4">
-							<AlertTriangle class="h-6 text-red-500" />
+							<AlertTriangle class="h-6 text-red-500 shrink-0" />
 
 							<div class="pl-4 flex flex-col text-left">
 								<h2>
-									{firstLetterUpperCase(problem.vulnerability_kind)}
+									{problem.vulnerability_kind.charAt(0).toUpperCase() +
+										problem.vulnerability_kind.slice(1)}
 								</h2>
 								<p class="text-sm text-muted-foreground w-4/5 text-balance">
 									{problem.description}
@@ -89,15 +90,15 @@
 						disabled
 					>
 						<div class="flex items-center gap-4 px-4">
-							<Check class="h-6 text-green-500" />
+							<Check class="h-6 text-green-500 shrink-0" />
 
 							<div class="pl-4 flex flex-col text-left">
 								<h2>
-									{firstLetterUpperCase(pass)}
+									{pass.name}
 								</h2>
-								<!-- <p class="text-sm text-muted-foreground w-4/5 text-balance">
-									{problem.description}
-								</p> -->
+								<p class="text-sm text-muted-foreground w-4/5 text-balance">
+									{pass.description}
+								</p>
 							</div>
 						</div>
 					</Accordion.Trigger>
