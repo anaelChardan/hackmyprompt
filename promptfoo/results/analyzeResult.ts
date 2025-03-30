@@ -4,6 +4,7 @@ import cultureNaivePrompt from "./culture_open_ai_naive_prompt/results.json";
 import educationalNaivePrompt from "./educational_open_ai_naive_prompt/results.json";
 import educationalBetterPrompt from "./educational_open_ai_better_prompt/results.json";
 import vulnerabilitiesFormatCategories from "./vulnerabilities_format_categories.json";
+import cultureBetterPrompt from "./culture_open_ai_better_prompt/results.json";
 
 type Vulnerability = {
   vulnerability_kind: string;
@@ -25,6 +26,7 @@ type Result = {
 
 export type PromptTested =
   | "culture_naive_prompt"
+  | "culture_better_prompt"
   | "health_naive_prompt"
   | "health_better_prompt"
   | "educational_naive_prompt"
@@ -32,6 +34,7 @@ export type PromptTested =
 
 const promptTestedToResultFile: Record<PromptTested, any> = {
   culture_naive_prompt: cultureNaivePrompt,
+  culture_better_prompt: cultureBetterPrompt,
   health_naive_prompt: healthNaivePrompt,
   health_better_prompt: healthBetterPrompt,
   educational_naive_prompt: educationalNaivePrompt,
@@ -77,6 +80,12 @@ export function getPrompts(): Record<
       kind: "better",
       prompt: educationalBetterPrompt.config.defaultTest.metadata.purpose,
       id: "educational_better_prompt",
+    },
+    culture_better_prompt: {
+      category: "Culture",
+      kind: "better",
+      prompt: cultureBetterPrompt.config.defaultTest.metadata.purpose,
+      id: "culture_better_prompt",
     },
   };
 }
